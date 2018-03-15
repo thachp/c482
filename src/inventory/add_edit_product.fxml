@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+        
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="600.0" minWidth="900.0" prefHeight="600.0" prefWidth="900.0"
+      xmlns="http://javafx.com/javafx/8"
+      fx:controller="inventory.ProductController"
+      xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <HBox prefHeight="560.0" prefWidth="800.0">
+            <children>
+                <Pane prefHeight="200.0" prefWidth="375.0"
+                      style="-fx-border-color: #CCC; -fx-border-width: 1; -fx-border-radius: 5;">
+                    <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                    </HBox.margin>
+                    <children>
+                        <Text fx:id="txtProductScene" fill="#2a5fb8" layoutX="-3.0" layoutY="-5.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                              text="Add Product" x="15.0" y="35.0">
+                            <font>
+                                <Font size="19.0"/>
+                            </font>
+                        </Text>
+                        <GridPane layoutX="15.0" layoutY="75.0" prefHeight="325.0" prefWidth="325.0">
+                            <children>
+                                <Label text="ID"/>
+                                <Label text="Name" GridPane.rowIndex="1"/>
+                                <Label text="Inventory Level" GridPane.rowIndex="2"/>
+                                <Label text="Price" GridPane.rowIndex="3"/>
+                                <Label text="Maximum" GridPane.rowIndex="4"/>
+                                <Label text="Minimum" GridPane.rowIndex="5"/>
+                                <TextField fx:id="btnProductId" disable="true" editable="false"
+                                           promptText="Auto Gen - Disabled" style="-fx-background-color: #CCC;"
+                                           GridPane.columnIndex="1"/>
+                                <TextField fx:id="txtProductName" promptText="Product Name" GridPane.columnIndex="1"
+                                           GridPane.rowIndex="1"/>
+                                <TextField fx:id="txtProductInventory" promptText="Inventory Level"
+                                           GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                                <TextField fx:id="txtProductMaximum" promptText="Maximum" GridPane.columnIndex="1"
+                                           GridPane.rowIndex="4"/>
+                                <TextField fx:id="txtProductMinimum" promptText="Minimum" GridPane.columnIndex="1"
+                                           GridPane.rowIndex="5"/>
+                                <TextField fx:id="txtProductPrice" promptText="Price" GridPane.columnIndex="1"
+                                           GridPane.rowIndex="3"/>
+                            </children>
+                            <columnConstraints>
+                                <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0"
+                                                   prefWidth="50.0"/>
+                                <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0"
+                                                   prefWidth="100.0"/>
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                            </rowConstraints>
+                        </GridPane>
+                    </children>
+                    <padding>
+                        <Insets left="4.0" top="5.0"/>
+                    </padding>
+                </Pane>
+                <Pane prefHeight="200.0" prefWidth="525.0"
+                      style="-fx-border-color: #CCC; -fx-border-width: 1; -fx-border-radius: 5;">
+                    <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                    </HBox.margin>
+                    <children>
+                        <TableView fx:id="tblProducts" layoutY="49.0" prefHeight="200.0" prefWidth="502.0">
+                            <columns>
+                                <TableColumn prefWidth="82.0" text="Part"/>
+                                <TableColumn prefWidth="153.0" text="Part Name"/>
+                                <TableColumn prefWidth="136.0" text="Inventory Level"/>
+                                <TableColumn prefWidth="143.0" text="Price per Unit"/>
+                            </columns>
+                        </TableView>
+                        <Button fx:id="btnAddPart" layoutX="421.0" layoutY="259.0" mnemonicParsing="false"
+                                prefWidth="80.0" text="Add"/>
+                        <Button fx:id="btnDeletePart" layoutX="421.0" layoutY="506.0" mnemonicParsing="false"
+                                prefWidth="80.0" text="Delete"/>
+                        <TextField fx:id="txtSearchPart" layoutX="255.0" layoutY="9.0" prefHeight="27.0"
+                                   prefWidth="245.0"/>
+                        <Button fx:id="btnSearchPart" layoutX="165.0" layoutY="9.0" mnemonicParsing="false"
+                                prefWidth="80.0" text="Search"/>
+                        <TableView fx:id="tblParts" layoutY="296.0" prefHeight="200.0" prefWidth="502.0">
+                            <columns>
+                                <TableColumn prefWidth="75.0" text="Part ID"/>
+                                <TableColumn prefWidth="172.0" text="Part Name"/>
+                                <TableColumn prefWidth="124.0" text="Inventory Level"/>
+                                <TableColumn prefWidth="143.0" text="Price per Unit"/>
+                            </columns>
+                        </TableView>
+                    </children>
+                </Pane>
+            </children>
+        </HBox>
+        <Pane maxHeight="50.0" maxWidth="800.0" minHeight="25.0" minWidth="900.0" prefHeight="50.0" prefWidth="900.0">
+            <children>
+                <Button fx:id="btnCancelProduct"
+                        onAction="#handleCancel"
+                        layoutX="801.0" layoutY="4.0" mnemonicParsing="false" prefWidth="80.0"
+                        text="Cancel"/>
+                <Button fx:id="btnProductSave" layoutX="712.0" layoutY="4.0" mnemonicParsing="false" prefWidth="80.0"
+                        text="Save"/>
+            </children>
+        </Pane>
+    </children>
+</VBox>
