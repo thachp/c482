@@ -21,23 +21,37 @@ public class MainController implements Initializable {
     private TableView<Part> tblParts;
 
     @FXML
+    private TableView<Product> tblProducts;
+
+    @FXML
     private TableColumn<Part, Number> partIdColumn;
+
+    @FXML
+    private TableColumn<Product, Number> productIdColumn;
 
     @FXML
     private TableColumn<Part, String> partNameColumn;
 
     @FXML
+    private TableColumn<Product, String> productNameColumn;
+
+    @FXML
     private TableColumn<Part, Number> partInventoryLevelColumn;
 
     @FXML
+    private TableColumn<Product, Number> productInventoryLevelColumn;
+
+    @FXML
     private TableColumn<Part, String> partPriceColumn;
+
+    @FXML
+    private TableColumn<Product, String> productPriceColumn;
 
     @FXML
     private TextField txtSearchPart;
 
     @FXML
     private TextField txtSearchProduct;
-
 
     @FXML
     private Button btnDeletePart;
@@ -70,6 +84,7 @@ public class MainController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         initializeParts();
+        initializeProducts();
         disableButtons();
     }
 
@@ -77,11 +92,21 @@ public class MainController implements Initializable {
         partIdColumn.setCellValueFactory(cellData -> cellData.getValue().partIdProperty());
         partNameColumn.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
         partInventoryLevelColumn.setCellValueFactory(cellData -> cellData.getValue().inStockProperty());
-        partPriceColumn.setCellValueFactory(cellData ->
+        productPriceColumn.setCellValueFactory(cellData ->
                 Bindings.format("%.2f", cellData.getValue().priceProperty()));
         tblParts.setItems(Inventory.getInstance().getAllParts());
     }
-    
+
+    private void initializeProducts() {
+        productIdColumn.setCellValueFactory(cellData -> cellData.getValue().productIdProperty());
+        productNameColumn.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
+        productInventoryLevelColumn.setCellValueFactory(cellData -> cellData.getValue().inStockProperty());
+        partPriceColumn.setCellValueFactory(cellData ->
+                Bindings.format("%.2f", cellData.getValue().priceProperty()));
+        tblProducts.setItems(Inventory.getInstance().getProducts());
+
+    }
+
     /**
      * Disable buttons parts * product inventory are empty.
      */
@@ -105,14 +130,11 @@ public class MainController implements Initializable {
     @FXML
     private void handleModifyPart(ActionEvent event) {
         Part selectedPart = tblParts.getSelectionModel().getSelectedItem();
-
         if (selectedPart != null) {
             Main.getInstance().gotoPartEditView(PartController.PART_WIDTH, PartController.PART_HEIGHT);
             PartController.getInstance().setSceneName("Modify Part");
             PartController.getInstance().handleEditPart(selectedPart);
         }
-
-
     }
 
     @FXML
@@ -136,7 +158,27 @@ public class MainController implements Initializable {
 
     @FXML
     private void handleSearchProduct(ActionEvent event) {
+        FilteredList<Product> filteredData = new FilteredList<>(Inventory.getInstance().getProducts(), p -> true);
 
+
+        filteredData.setPredicate(product -> {
+            // If filter text is empty, display all persons.
+            if (txtSearchProduct.getText() == null || txtSearchProduct.getLength() == 0) {
+                return true;
+            }
+
+            // Compare first name and last name of every person with filter text.
+            String lowerCaseFilter = txtSearchProduct.getText().toLowerCase();
+
+            if (product.getName().toLowerCase().contains(lowerCaseFilter)) {
+                return true; // Filter matches first name.
+            }
+            return false; // Does not match.
+        });
+
+        SortedList<Product> sortedData = new SortedList<>(filteredData);
+        sortedData.comparatorProperty().bind(tblProducts.comparatorProperty());
+        tblProducts.setItems(sortedData);
     }
 
     @FXML
@@ -166,6 +208,7 @@ public class MainController implements Initializable {
 
     @FXML
     private void handleDeletePart(ActionEvent event) {
+
         int selectedIndex = tblParts.getSelectionModel().getSelectedIndex();
 
         if (selectedIndex != -1) {

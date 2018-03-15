@@ -1,15 +1,16 @@
 package inventory;
 
-import javafx.beans.property.SimpleDoubleProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.*;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Random;
 
 public class Product {
 
-    private ArrayList<Part> associatedParts;
+    private ObservableList<Part> associatedParts = FXCollections.observableArrayList();
     private SimpleIntegerProperty productId;
     private SimpleStringProperty name;
     private SimpleDoubleProperty price;
@@ -17,6 +18,18 @@ public class Product {
     private SimpleIntegerProperty min;
     private SimpleIntegerProperty max;
 
+
+    public void setProductId(int productId) {
+        this.productId.set(productId);
+    }
+
+    public int getProductId() {
+        return productId.get();
+    }
+
+    public IntegerProperty productIdProperty() {
+        return productId;
+    }
 
     public void setName(String name) {
         this.name.set(name);
@@ -26,6 +39,9 @@ public class Product {
         return this.name.get();
     }
 
+    public StringProperty nameProperty() {
+        return name;
+    }
 
     public void setPrice(double price) {
         this.price.set(price);
@@ -33,6 +49,10 @@ public class Product {
 
     public double getPrice() {
         return this.price.get();
+    }
+
+    public DoubleProperty priceProperty() {
+        return price;
     }
 
     public void setInStock(int inStock) {
@@ -43,12 +63,8 @@ public class Product {
         return inStock.get();
     }
 
-    public void setProductId(int productId) {
-        this.productId.set(productId);
-    }
-
-    public int getProductId() {
-        return productId.get();
+    public IntegerProperty inStockProperty() {
+        return inStock;
     }
 
     public void setMax(int max) {
@@ -100,4 +116,12 @@ public class Product {
         }
         return part;
     }
+
+    public int generatePartId() {
+        Random rand = new Random();
+        int rand1 = rand.nextInt(100);
+        int rand2 = rand.nextInt(100);
+        return (int) rand1 * rand2;
+    }
+
 }

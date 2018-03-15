@@ -57,10 +57,10 @@
                         </Text>
                         <TableView fx:id="tblProducts" layoutX="10.0" layoutY="51.0" prefHeight="228.0" prefWidth="420.0">
                             <columns>
-                                <TableColumn fx:id="productTableView" prefWidth="82.0" text="Product ID" />
+                                <TableColumn fx:id="productIdColumn" prefWidth="82.0" text="Product ID" />
                                 <TableColumn fx:id="productNameColumn" prefWidth="116.0" text="Product Name" />
-                                <TableColumn fx:id="productInventoryLevel" prefWidth="110.0" text="Inventory Level" />
-                                <TableColumn fx:id="productPriceUnit" prefWidth="111.0" text="Price per Unit" />
+                                <TableColumn fx:id="productInventoryLevelColumn" prefWidth="110.0" text="Inventory Level" />
+                                <TableColumn fx:id="productPriceColumn" prefWidth="111.0" text="Price per Unit" />
                             </columns>
                         </TableView>
                         <Button fx:id="btnAddProduct" layoutX="171.0" layoutY="290.0" mnemonicParsing="false" onAction="#handleAddProduct" prefWidth="80.0" text="Add" />
