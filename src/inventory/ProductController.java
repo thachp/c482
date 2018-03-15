@@ -18,9 +18,23 @@ public class ProductController implements Initializable {
 
     @FXML
     private Text txtProductScene;
+    @FXML
+    private TextField txtProductId;
 
     @FXML
-    private TextField txtSearchProduct;
+    private TextField txtProductName;
+
+    @FXML
+    private TextField txtProductInventory;
+
+    @FXML
+    private TextField txtProductMaximum;
+
+    @FXML
+    private TextField txtProductMinimum;
+
+    @FXML
+    private TextField txtProductPrice;
 
     private static ProductController instance;
 
@@ -36,8 +50,14 @@ public class ProductController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        restrictInput(txtProductMinimum);
+        restrictInput(txtProductMaximum);
+        restrictInput(txtProductInventory);
+        handlePrice();
+
     }
+
+
 
     @FXML
     private void handleSearchProduct(ActionEvent event) {
@@ -59,7 +79,23 @@ public class ProductController implements Initializable {
         //
     }
 
+    private void handlePrice() {
+        txtProductPrice.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.matches("([0-9.]*)")) {
+                txtProductPrice.setText(oldValue);
+            }
+        });
+    }
+
     private void handleSave(ActionEvent event) {
+
+        String productName = txtProductName.getText();
+        String productInventory = txtProductInventory.getText();
+        String productMin = txtProductMinimum.getText();
+        String productMax = txtProductMaximum.getText();
+        String productPrice = txtProductPrice.getText();
+
+        // submit part data to inventory and return
         Main.getInstance().gotoMain(Main.APP_WIDTH, Main.APP_HEIGHT);
     }
 
@@ -67,6 +103,14 @@ public class ProductController implements Initializable {
         txtProductScene.setText(name);
     }
 
+
+    private void restrictInput(TextField tf) {
+        tf.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.matches("[0-9]*")) {
+                tf.setText(oldValue);
+            }
+        });
+    }
 
     @FXML
     private void handleCancel(ActionEvent event) {

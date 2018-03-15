@@ -17,8 +17,6 @@ public class PartController implements Initializable {
     final static int PART_WIDTH = 500;
     final static int PART_HEIGHT = 425;
 
-    private Part part = null;
-
     @FXML
     private TextField txtPartID;
 

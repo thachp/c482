@@ -2,9 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/inventory/MainController.java" afterPath="$PROJECT_DIR$/src/inventory/MainController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/inventory/Product.java" afterPath="$PROJECT_DIR$/src/inventory/Product.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/inventory/main_screen.fxml" afterPath="$PROJECT_DIR$/src/inventory/main_screen.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/c482/inventory/PartController$1.class" afterPath="$PROJECT_DIR$/out/production/c482/inventory/PartController$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/c482/inventory/PartController.class" afterPath="$PROJECT_DIR$/out/production/c482/inventory/PartController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/c482/inventory/ProductController.class" afterPath="$PROJECT_DIR$/out/production/c482/inventory/ProductController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/c482/inventory/add_edit_product.fxml" afterPath="$PROJECT_DIR$/out/production/c482/inventory/add_edit_product.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/inventory/PartController.java" afterPath="$PROJECT_DIR$/src/inventory/PartController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/inventory/ProductController.java" afterPath="$PROJECT_DIR$/src/inventory/ProductController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/inventory/add_edit_product.fxml" afterPath="$PROJECT_DIR$/src/inventory/add_edit_product.fxml" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -66,11 +71,11 @@
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="PartController.java" pinned="false" current-in-tab="true">
+          <file leaf-file-name="PartController.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/inventory/PartController.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-1.7650602">
-                  <caret line="33" column="9" selection-start-line="33" selection-start-column="9" selection-end-line="33" selection-end-column="9" />
+                <state vertical-scroll-proportion="-14.851851">
+                  <caret line="129" column="29" selection-start-line="129" selection-start-column="29" selection-end-line="129" selection-end-column="29" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -78,11 +83,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="main_screen.fxml" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/inventory/main_screen.fxml">
+          <file leaf-file-name="add_edit_product.fxml" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/inventory/add_edit_product.fxml">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-8.716981">
-                  <caret line="63" column="38" selection-start-line="63" selection-start-column="38" selection-end-line="63" selection-end-column="38" />
+                <state vertical-scroll-proportion="0.27272728">
+                  <caret line="32" column="74" selection-start-line="32" selection-start-column="74" selection-end-line="32" selection-end-column="74" />
                   <folding />
                 </state>
               </provider>
@@ -115,22 +120,14 @@
           <file leaf-file-name="ProductController.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/inventory/ProductController.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-0.24698795">
-                  <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+                <state vertical-scroll-proportion="0.37043795">
+                  <caret line="97" column="11" selection-start-line="97" selection-start-column="11" selection-end-line="97" selection-end-column="11" />
                   <folding>
                     <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="MainController.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/inventory/MainController.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="217" column="25" selection-start-line="217" selection-start-column="25" selection-end-line="217" selection-end-column="25" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
+                    <element signature="e#2276#2277#0" expanded="true" />
+                    <element signature="e#2321#2322#0" expanded="true" />
+                    <element signature="e#2625#2626#0" expanded="true" />
+                    <element signature="e#2701#2702#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -147,6 +144,28 @@
                     <element signature="e#1075#1076#0" expanded="true" />
                     <element signature="e#1112#1113#0" expanded="true" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="MainController.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/inventory/MainController.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="148" column="46" selection-start-line="148" selection-start-column="27" selection-end-line="148" selection-end-column="46" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/inventory/Main.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -194,18 +213,18 @@
         <option value="$PROJECT_DIR$/src/inventory/App.java" />
         <option value="$PROJECT_DIR$/src/inventory/ScreenController.java" />
         <option value="$PROJECT_DIR$/src/inventory/MainScreenController.java" />
-        <option value="$PROJECT_DIR$/src/inventory/add_edit_product.fxml" />
-        <option value="$PROJECT_DIR$/src/inventory/ProductController.java" />
         <option value="$PROJECT_DIR$/src/inventory/Part.java" />
         <option value="$PROJECT_DIR$/src/inventory/Main.java" />
         <option value="$PROJECT_DIR$/src/inventory/add_edit_part.fxml" />
         <option value="$PROJECT_DIR$/src/inventory/Inventory.java" />
         <option value="$PROJECT_DIR$/src/inventory/Inhouse.java" />
         <option value="$PROJECT_DIR$/src/inventory/Outsourced.java" />
-        <option value="$PROJECT_DIR$/src/inventory/PartController.java" />
         <option value="$PROJECT_DIR$/src/inventory/main_screen.fxml" />
         <option value="$PROJECT_DIR$/src/inventory/Product.java" />
         <option value="$PROJECT_DIR$/src/inventory/MainController.java" />
+        <option value="$PROJECT_DIR$/src/inventory/PartController.java" />
+        <option value="$PROJECT_DIR$/src/inventory/add_edit_product.fxml" />
+        <option value="$PROJECT_DIR$/src/inventory/ProductController.java" />
       </list>
     </option>
   </component>
@@ -658,10 +677,10 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32905483" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32867134" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32867134" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24908425" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24908425" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24969475" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -773,7 +792,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -793,7 +812,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="57" column="13" selection-start-line="57" selection-start-column="13" selection-end-line="57" selection-end-column="13" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -887,8 +906,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="12" column="5" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
           <folding>
-            <element signature="e#1711#1712#0" expanded="true" />
-            <element signature="e#1756#1757#0" expanded="true" />
+            <element signature="e#1711#1712#0" expanded="false" />
+            <element signature="e#1756#1757#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -995,7 +1014,7 @@
         <state vertical-scroll-proportion="0.67153287">
           <caret line="32" column="5" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1005,41 +1024,9 @@
         <state vertical-scroll-proportion="0.68430656">
           <caret line="25" column="54" selection-start-line="25" selection-start-column="54" selection-end-line="25" selection-end-column="54" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1631#1632#0" expanded="true" />
-            <element signature="e#1673#1674#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/inventory/add_edit_product.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="13.641509">
-          <caret line="20" column="52" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/inventory/main_screen.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.716981">
-          <caret line="63" column="38" selection-start-line="63" selection-start-column="38" selection-end-line="63" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/inventory/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="37" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#1631#1632#0" expanded="false" />
+            <element signature="e#1673#1674#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1067,14 +1054,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/inventory/MainController.java">
+    <entry file="file://$PROJECT_DIR$/src/inventory/main_screen.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="217" column="25" selection-start-line="217" selection-start-column="25" selection-end-line="217" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.5945946">
+          <caret line="63" column="38" selection-start-line="63" selection-start-column="38" selection-end-line="63" selection-end-column="38" />
+          <folding />
         </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/inventory/Product.java">
@@ -1090,22 +1078,55 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/inventory/PartController.java">
+    <entry file="file://$PROJECT_DIR$/src/inventory/MainController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.7650602">
-          <caret line="33" column="9" selection-start-line="33" selection-start-column="9" selection-end-line="33" selection-end-column="9" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="148" column="46" selection-start-line="148" selection-start-column="27" selection-end-line="148" selection-end-column="46" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/inventory/ProductController.java">
+    <entry file="file://$PROJECT_DIR$/src/inventory/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.24698795">
-          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/inventory/PartController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.851851">
+          <caret line="129" column="29" selection-start-line="129" selection-start-column="29" selection-end-line="129" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/inventory/add_edit_product.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.27272728">
+          <caret line="32" column="74" selection-start-line="32" selection-start-column="74" selection-end-line="32" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/inventory/ProductController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.37043795">
+          <caret line="97" column="11" selection-start-line="97" selection-start-column="11" selection-end-line="97" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2276#2277#0" expanded="true" />
+            <element signature="e#2321#2322#0" expanded="true" />
+            <element signature="e#2625#2626#0" expanded="true" />
+            <element signature="e#2701#2702#0" expanded="true" />
           </folding>
         </state>
       </provider>
