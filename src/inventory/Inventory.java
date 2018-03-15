@@ -59,10 +59,6 @@ public class Inventory {
         return product;
     }
 
-    public void updateProduct(int productId) {
-        // not sure what to do
-    }
-
     public void addPart(Part part) {
         this.allParts.add(part);
     }
@@ -85,6 +81,10 @@ public class Inventory {
         }
 
         return part;
+    }
+
+    public void updateProduct(int productId) {
+        // not sure what to do
     }
 
     public void updatePart(int partId) {

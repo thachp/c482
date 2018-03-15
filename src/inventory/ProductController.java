@@ -19,7 +19,6 @@ public class ProductController implements Initializable {
     final static int PRODUCT_WIDTH = 900;
     final static int PRODUCT_HEIGHT = 600;
 
-
     @FXML
     private TableView<Part> tblAllParts;
 
@@ -84,11 +83,11 @@ public class ProductController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
 
         initializeAllParts();
+        initializeProdParts();
         restrictInput(txtProductMinimum);
         restrictInput(txtProductMaximum);
         restrictInput(txtProductInventory);
         handlePrice();
-
     }
 
     private void initializeAllParts() {
@@ -101,10 +100,10 @@ public class ProductController implements Initializable {
     }
 
     private void initializeProdParts() {
-        allPartIdColumn.setCellValueFactory(cellData -> cellData.getValue().partIdProperty());
-        allPartNameColumn.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
-        allPartInventoryLevelColumn.setCellValueFactory(cellData -> cellData.getValue().inStockProperty());
-        allPartPriceColumn.setCellValueFactory(cellData ->
+        prodPartIdColumn.setCellValueFactory(cellData -> cellData.getValue().partIdProperty());
+        prodPartNameColumn.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
+        prodPartInventoryLevelColumn.setCellValueFactory(cellData -> cellData.getValue().inStockProperty());
+        prodPartPriceColumn.setCellValueFactory(cellData ->
                 Bindings.format("%.2f", cellData.getValue().priceProperty()));
         tblProductParts.setItems(Inventory.getInstance().getAllParts());
     }
