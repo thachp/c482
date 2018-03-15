@@ -1,9 +1,12 @@
 package inventory;
 
 import javafx.application.Platform;
+import javafx.beans.binding.Bindings;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 
@@ -15,6 +18,37 @@ public class ProductController implements Initializable {
 
     final static int PRODUCT_WIDTH = 900;
     final static int PRODUCT_HEIGHT = 600;
+
+
+    @FXML
+    private TableView<Part> tblAllParts;
+
+    @FXML
+    private TableView<Part> tblProductParts;
+
+    @FXML
+    private TableColumn<Part, Number> allPartIdColumn;
+
+    @FXML
+    private TableColumn<Part, Number> prodPartIdColumn;
+
+    @FXML
+    private TableColumn<Part, String> allPartNameColumn;
+
+    @FXML
+    private TableColumn<Part, String> prodPartNameColumn;
+
+    @FXML
+    private TableColumn<Part, Number> allPartInventoryLevelColumn;
+
+    @FXML
+    private TableColumn<Part, Number> prodPartInventoryLevelColumn;
+
+    @FXML
+    private TableColumn<Part, String> allPartPriceColumn;
+
+    @FXML
+    private TableColumn<Part, String> prodPartPriceColumn;
 
     @FXML
     private Text txtProductScene;
@@ -46,10 +80,10 @@ public class ProductController implements Initializable {
         return instance;
     }
 
-
-
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+
+        initializeAllParts();
         restrictInput(txtProductMinimum);
         restrictInput(txtProductMaximum);
         restrictInput(txtProductInventory);
@@ -57,6 +91,23 @@ public class ProductController implements Initializable {
 
     }
 
+    private void initializeAllParts() {
+        allPartIdColumn.setCellValueFactory(cellData -> cellData.getValue().partIdProperty());
+        allPartNameColumn.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
+        allPartInventoryLevelColumn.setCellValueFactory(cellData -> cellData.getValue().inStockProperty());
+        allPartPriceColumn.setCellValueFactory(cellData ->
+                Bindings.format("%.2f", cellData.getValue().priceProperty()));
+        tblAllParts.setItems(Inventory.getInstance().getAllParts());
+    }
+
+    private void initializeProdParts() {
+        allPartIdColumn.setCellValueFactory(cellData -> cellData.getValue().partIdProperty());
+        allPartNameColumn.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
+        allPartInventoryLevelColumn.setCellValueFactory(cellData -> cellData.getValue().inStockProperty());
+        allPartPriceColumn.setCellValueFactory(cellData ->
+                Bindings.format("%.2f", cellData.getValue().priceProperty()));
+        tblProductParts.setItems(Inventory.getInstance().getAllParts());
+    }
 
 
     @FXML

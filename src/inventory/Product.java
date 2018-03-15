@@ -3,6 +3,8 @@ package inventory;
 import javafx.beans.property.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
+import javafx.scene.control.TableView;
 
 import java.util.ArrayList;
 import java.util.Iterator;
