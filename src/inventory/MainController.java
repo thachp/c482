@@ -1,27 +1,19 @@
 package inventory;
 
-import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.beans.binding.Bindings;
-import javafx.beans.property.IntegerProperty;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
 
 public class MainController implements Initializable {
 
@@ -89,14 +81,24 @@ public class MainController implements Initializable {
                 Bindings.format("%.2f", cellData.getValue().priceProperty()));
         tblParts.setItems(Inventory.getInstance().getAllParts());
     }
-
+    
+    /**
+     * Disable buttons parts * product inventory are empty.
+     */
 
     private void disableButtons() {
-        if(Inventory.getInstance().getAllParts().isEmpty()) {
+        if (Inventory.getInstance().getAllParts().isEmpty()) {
             btnDeletePart.setDisable(true);
             btnModifyPart.setDisable(true);
             btnSearchParts.setDisable(true);
             txtSearchPart.setDisable(true);
+        }
+
+        if(Inventory.getInstance().getProducts().isEmpty()) {
+            btnDeleteProduct.setDisable(true);
+            btnModifyProduct.setDisable(true);
+            btnSearchProducts.setDisable(true);
+            txtSearchProduct.setDisable(true);
         }
     }
 
@@ -139,7 +141,27 @@ public class MainController implements Initializable {
 
     @FXML
     private void handleSearchPart(ActionEvent event) {
-        System.out.println("testing testing");
+        FilteredList<Part> filteredData = new FilteredList<>(Inventory.getInstance().getAllParts(), p -> true);
+
+
+        filteredData.setPredicate(part -> {
+            // If filter text is empty, display all persons.
+            if (txtSearchPart.getText() == null || txtSearchPart.getLength() == 0) {
+                return true;
+            }
+
+            // Compare first name and last name of every person with filter text.
+            String lowerCaseFilter = txtSearchPart.getText().toLowerCase();
+
+            if (part.getName().toLowerCase().contains(lowerCaseFilter)) {
+                return true; // Filter matches first name.
+            }
+            return false; // Does not match.
+        });
+
+        SortedList<Part> sortedData = new SortedList<>(filteredData);
+        sortedData.comparatorProperty().bind(tblParts.comparatorProperty());
+        tblParts.setItems(sortedData);
     }
 
     @FXML

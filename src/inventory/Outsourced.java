@@ -20,6 +20,18 @@ public class Outsourced extends Part{
         this.price = new SimpleDoubleProperty(Double.parseDouble(partPrice));
     }
 
+    public Outsourced(int partId, String partName, String inventoryLevel,
+                      String companyName, String partMin, String partMax, String partPrice) {
+
+        this.partId = new SimpleIntegerProperty(partId);
+        this.name = new SimpleStringProperty(partName);
+        this.inStock = new SimpleIntegerProperty(Integer.parseInt(inventoryLevel));
+        this.companyName = new SimpleStringProperty(companyName);
+        this.min = new SimpleIntegerProperty(Integer.parseInt(partMin));
+        this.max = new SimpleIntegerProperty(Integer.parseInt(partMax));
+        this.price = new SimpleDoubleProperty(Double.parseDouble(partPrice));
+    }
+
     public void setCompanyName(String name) {
         this.companyName.set(name);
     }

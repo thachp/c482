@@ -141,14 +141,14 @@ public class PartController implements Initializable {
                             String partMax,
                             String partPrice) {
 
-        if (toggleGroupValue.contains("In-House") && this.part == null) {
+        if (toggleGroupValue.contains("In-House") && txtPartID.getText().isEmpty()) {
 
             Inhouse thePart = new Inhouse(partName, inventoryLevel,
                     partSource, partMin, partMax, partPrice);
             Inventory.getInstance().addPart(thePart);
         }
 
-        if (toggleGroupValue.contains("Outsourced") && this.part == null) {
+        if (toggleGroupValue.contains("Outsourced") && txtPartID.getText().isEmpty()) {
             Outsourced thePart = new Outsourced(partName, inventoryLevel,
                     partSource, partMin, partMax, partPrice);
             Inventory.getInstance().addPart(thePart);
@@ -162,6 +162,30 @@ public class PartController implements Initializable {
                             String partMin,
                             String partMax,
                             String partPrice) {
+
+
+        if (toggleGroupValue.contains("In-House") && !txtPartID.getText().isEmpty()) {
+
+            int partId = Integer.parseInt(txtPartID.getText());
+            Part thePart = Inventory.getInstance().lookupPart(partId);
+            Inventory.getInstance().deletePart(thePart);
+
+            Inhouse newPart = new Inhouse(partId, partName, inventoryLevel,
+                    partSource, partMin, partMax, partPrice);
+            Inventory.getInstance().addPart(newPart);
+        }
+
+        if (toggleGroupValue.contains("Outsourced") && !txtPartID.getText().isEmpty()) {
+
+            int partId = Integer.parseInt(txtPartID.getText());
+            Part thePart = Inventory.getInstance().lookupPart(partId);
+            Inventory.getInstance().deletePart(thePart);
+
+
+            Outsourced newPart = new Outsourced(partId, partName, inventoryLevel,
+                    partSource, partMin, partMax, partPrice);
+            Inventory.getInstance().addPart(newPart);
+        }
 
 
     }
@@ -241,6 +265,8 @@ public class PartController implements Initializable {
                         labelPartSource.setText(companyName);
                         txtPartSource.setPromptText(companyName);
                     }
+
+                    txtPartSource.setText("");
                 }
 
             }

@@ -31,9 +31,6 @@ public class Inventory {
         return products;
     }
 
-    public void hello() {
-        System.out.println("testing");
-    }
 
     public boolean removeProduct(int productId) {
         boolean deleted = false;
@@ -78,12 +75,13 @@ public class Inventory {
         // a part has been removed from arraylist
         Part part = null;
 
-        Iterator<Part> it = this.allParts.iterator();
-        while (it.hasNext()) {
-            if (it.next().getPartId() == partId) {
-                part = it.next();
+        for (Part p : allParts){
+
+            if(p.getPartId() == partId) {
+                part = p;
                 break;
             }
+            // Do whatever you want to do with tabPane
         }
 
         return part;
