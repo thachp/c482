@@ -179,12 +179,10 @@ public class PartController implements Initializable {
             Part thePart = Inventory.getInstance().lookupPart(partId);
             Inventory.getInstance().deletePart(thePart);
 
-
             Outsourced newPart = new Outsourced(partId, partName, inventoryLevel,
                     partSource, partMin, partMax, partPrice);
             Inventory.getInstance().addPart(newPart);
         }
-
 
     }
 

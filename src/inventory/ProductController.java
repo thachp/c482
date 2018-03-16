@@ -109,7 +109,6 @@ public class ProductController implements Initializable {
         restrictInput(txtProductMaximum);
         restrictInput(txtProductInventory);
         handlePrice();
-        disableButtons();
     }
 
     private void initializeAllParts() {
@@ -131,18 +130,16 @@ public class ProductController implements Initializable {
         prodPartInventoryLevelColumn.setCellValueFactory(cellData -> cellData.getValue().inStockProperty());
         prodPartPriceColumn.setCellValueFactory(cellData ->
                 Bindings.format("%.2f", cellData.getValue().priceProperty()));
-        tblProductParts.setItems(myProduct.getAssociatedParts());
     }
 
     public void handleEditProduct(Product product) {
-        this.myProduct = product;
-        txtProductId.setText(Integer.toString(myProduct.getProductId()));
-        txtProductName.setText(myProduct.getName());
-        txtProductInventory.setText(Integer.toString(myProduct.getInStock()));
-        txtProductMinimum.setText(Integer.toString(myProduct.getMin()));
-        txtProductMaximum.setText(Integer.toString(myProduct.getMax()));
-        txtProductPrice.setText(Double.toString(myProduct.getPrice()));
-        tblProductParts.setItems(myProduct.getAssociatedParts());
+        txtProductId.setText(Integer.toString(product.getProductId()));
+        txtProductName.setText(product.getName());
+        txtProductInventory.setText(Integer.toString(product.getInStock()));
+        txtProductMinimum.setText(Integer.toString(product.getMin()));
+        txtProductMaximum.setText(Integer.toString(product.getMax()));
+        txtProductPrice.setText(Double.toString(product.getPrice()));
+        tblProductParts.setItems(product.getAssociatedParts());
     }
 
     @FXML
@@ -152,7 +149,6 @@ public class ProductController implements Initializable {
         if(selectedPart != null) {
             tblAllParts.getItems().remove(selectedPart);
             tblProductParts.getItems().add(selectedPart);
-            disableButtons();
         }
 
     }
@@ -163,7 +159,6 @@ public class ProductController implements Initializable {
         if(selectedPart != null) {
             tblAllParts.getItems().add(selectedPart);
             tblProductParts.getItems().remove(selectedPart);
-            disableButtons();
         }
 
     }
@@ -198,11 +193,22 @@ public class ProductController implements Initializable {
                              String productMin, String productMax, String productPrice) {
 
         if(!txtProductId.getText().isEmpty()) {
-            myProduct.setName(productName);
-            myProduct.setInStock(Integer.parseInt(productInventory));
-            myProduct.setMin(Integer.parseInt(productMin));
-            myProduct.setMax(Integer.parseInt(productMax));
-            myProduct.setPrice(Double.parseDouble(productPrice));
+
+            int productId = Integer.parseInt(txtProductId.getText());
+            Product theProduct = Inventory.getInstance().lookupProduct(productId);
+            Inventory.getInstance().removeProduct(productId);
+
+            Product newProduct = new Product(productName, productInventory, productMin, productMax, productPrice);
+            ObservableList<Part> parts = tblProductParts.getItems();
+
+            for (Part p : parts){
+                newProduct.addAssociatedPart(p);
+            }
+
+            // add product
+            Inventory.getInstance().addProduct(newProduct);
+
+
         }
     }
 
@@ -223,11 +229,9 @@ public class ProductController implements Initializable {
         }
     }
 
-
     public void setSceneName(String name) {
         txtProductScene.setText(name);
     }
-
 
     private void restrictInput(TextField tf) {
         tf.textProperty().addListener((observable, oldValue, newValue) -> {
@@ -268,25 +272,6 @@ public class ProductController implements Initializable {
         tblAllParts.setItems(sortedData);
     }
 
-
-    private void disableButtons() {
-        if (tblAllParts.getItems().isEmpty()) {
-            btnAddPart.setDisable(true);
-            btnSearchPart.setDisable(true);
-            txtSearchPart.setDisable(true);
-        }  else {
-            btnAddPart.setDisable(false);
-            btnSearchPart.setDisable(false);
-            txtSearchPart.setDisable(false);
-        }
-
-        if(myProduct.getAssociatedParts().isEmpty()) {
-            btnDeletePart.setDisable(true);
-        } else {
-            btnDeletePart.setDisable(false);
-
-        }
-    }
 
 
 }
