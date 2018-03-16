@@ -15,18 +15,32 @@ public class Product {
     private ObservableList<Part> associatedParts = FXCollections.observableArrayList();
     private SimpleIntegerProperty productId;
     private SimpleStringProperty name;
-    private SimpleDoubleProperty price;
     private SimpleIntegerProperty inStock;
     private SimpleIntegerProperty min;
     private SimpleIntegerProperty max;
+    private SimpleDoubleProperty price;
 
+    public Product() {
+        this.productId = new SimpleIntegerProperty(this.generateProdId());
+    }
+
+    public Product(String partName, String  inventoryLevel, String partMin,
+                   String partMax, String partPrice) {
+        this.productId = new SimpleIntegerProperty(this.generateProdId());
+        this.name = new SimpleStringProperty(partName);
+        this.inStock = new SimpleIntegerProperty(Integer.parseInt(inventoryLevel));
+        this.min = new SimpleIntegerProperty(Integer.parseInt(partMin));
+        this.max = new SimpleIntegerProperty(Integer.parseInt(partMax));
+        this.price = new SimpleDoubleProperty(Double.parseDouble(partPrice));
+
+    }
 
     public void setProductId(int productId) {
         this.productId.set(productId);
     }
 
     public int getProductId() {
-        return productId.get();
+        return this.productId.get();
     }
 
     public IntegerProperty productIdProperty() {
@@ -89,6 +103,10 @@ public class Product {
         this.associatedParts.add(part);
     }
 
+    public ObservableList<Part> getAssociatedParts() {
+        return this.associatedParts;
+    }
+
     public boolean removeAssociatedPart(int partId) {
 
         // a part has been removed from arraylist
@@ -119,7 +137,7 @@ public class Product {
         return part;
     }
 
-    public int generatePartId() {
+    public int generateProdId() {
         Random rand = new Random();
         int rand1 = rand.nextInt(100);
         int rand2 = rand.nextInt(100);

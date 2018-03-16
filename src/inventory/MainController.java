@@ -71,6 +71,9 @@ public class MainController implements Initializable {
     @FXML
     private Button btnSearchProducts;
 
+    @FXML
+    private Button btnAddProduct;
+
     private static MainController instance;
 
     public MainController() {
@@ -117,6 +120,7 @@ public class MainController implements Initializable {
             btnModifyPart.setDisable(true);
             btnSearchParts.setDisable(true);
             txtSearchPart.setDisable(true);
+            btnAddProduct.setDisable(true);
         }
 
         if(Inventory.getInstance().getProducts().isEmpty()) {
@@ -152,15 +156,19 @@ public class MainController implements Initializable {
 
     @FXML
     private void handleModifyProduct(ActionEvent event) {
-        Main.getInstance().gotoProductEditView(ProductController.PRODUCT_WIDTH, ProductController.PRODUCT_HEIGHT);
-        ProductController.getInstance().setSceneName("Modify Product");
+
+        Product selectedProduct = tblProducts.getSelectionModel().getSelectedItem();
+        if (selectedProduct != null) {
+            Main.getInstance().gotoProductEditView(ProductController.PRODUCT_WIDTH, ProductController.PRODUCT_HEIGHT);
+            ProductController.getInstance().setSceneName("Modify Product");
+            ProductController.getInstance().handleEditProduct(selectedProduct);
+        }
+
     }
 
     @FXML
     private void handleSearchProduct(ActionEvent event) {
         FilteredList<Product> filteredData = new FilteredList<>(Inventory.getInstance().getProducts(), p -> true);
-
-
         filteredData.setPredicate(product -> {
             // If filter text is empty, display all persons.
             if (txtSearchProduct.getText() == null || txtSearchProduct.getLength() == 0) {
@@ -209,19 +217,17 @@ public class MainController implements Initializable {
     @FXML
     private void handleDeletePart(ActionEvent event) {
 
-        int selectedIndex = tblParts.getSelectionModel().getSelectedIndex();
-
-        if (selectedIndex != -1) {
-            tblParts.getItems().remove(selectedIndex);
-        }
-
+        Part selectedPart = tblParts.getSelectionModel().getSelectedItem();
+        Inventory.getInstance().deletePart(selectedPart);
         disableButtons();
 
     }
 
     @FXML
     private void handleDeleteProduct(ActionEvent event) {
-        //
+        Product selectedProduct = tblProducts.getSelectionModel().getSelectedItem();
+        Inventory.getInstance().removeProduct(selectedProduct.getProductId());
+        disableButtons();
     }
 
     @FXML

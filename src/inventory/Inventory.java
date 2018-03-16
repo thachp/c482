@@ -33,29 +33,22 @@ public class Inventory {
 
 
     public boolean removeProduct(int productId) {
-        boolean deleted = false;
-        Iterator<Product> it = this.products.iterator();
-        while (it.hasNext()) {
-            if (it.next().getProductId() == productId) {
-                it.remove();
-                deleted = true;
-                break;
-            }
-        }
-        return deleted;
+        Product theProduct = lookupProduct(productId);
+        return this.products.remove(theProduct);
     }
 
     public Product lookupProduct(int productId) {
-        // a part has been removed from arraylist
+
         Product product = null;
 
-        Iterator<Product> it = this.products.iterator();
-        while (it.hasNext()) {
-            if (it.next().getProductId() == productId) {
-                product = it.next();
+        for (Product p : products){
+
+            if(p.getProductId() == productId) {
+                product = p;
                 break;
             }
         }
+
         return product;
     }
 
@@ -68,18 +61,14 @@ public class Inventory {
     }
 
     public Part lookupPart(int partId) {
-        // a part has been removed from arraylist
         Part part = null;
 
         for (Part p : allParts){
-
             if(p.getPartId() == partId) {
                 part = p;
                 break;
             }
-            // Do whatever you want to do with tabPane
         }
-
         return part;
     }
 

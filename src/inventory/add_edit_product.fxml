@@ -74,19 +74,19 @@
                     <children>
                         <TableView fx:id="tblAllParts" layoutY="49.0" prefHeight="200.0" prefWidth="502.0">
                             <columns>
-                                <TableColumn fx:id="allPartIdColumn" prefWidth="75.0" text="Part ID Column"/>
+                                <TableColumn fx:id="allPartIdColumn" prefWidth="75.0" text="Part ID"/>
                                 <TableColumn fx:id="allPartNameColumn" prefWidth="172.0" text="Part Name"/>
                                 <TableColumn fx:id="allPartInventoryLevelColumn" prefWidth="124.0" text="Inventory Level"/>
                                 <TableColumn fx:id="allPartPriceColumn" prefWidth="143.0" text="Price per Unit"/>
                             </columns>
                         </TableView>
-                        <Button fx:id="btnAddPart" layoutX="421.0" layoutY="259.0" mnemonicParsing="false"
+                        <Button fx:id="btnAddPart" onAction="#addPart" layoutX="421.0" layoutY="259.0" mnemonicParsing="false"
                                 prefWidth="80.0" text="Add"/>
-                        <Button fx:id="btnDeletePart" layoutX="421.0" layoutY="506.0" mnemonicParsing="false"
+                        <Button fx:id="btnDeletePart" onAction="#deletePart" layoutX="421.0" layoutY="506.0" mnemonicParsing="false"
                                 prefWidth="80.0" text="Delete"/>
                         <TextField fx:id="txtSearchPart" layoutX="255.0" layoutY="9.0" prefHeight="27.0"
                                    prefWidth="245.0"/>
-                        <Button fx:id="btnSearchPart" layoutX="165.0" layoutY="9.0" mnemonicParsing="false"
+                        <Button fx:id="btnSearchPart" onAction="#searchPart" layoutX="165.0" layoutY="9.0" mnemonicParsing="false"
                                 prefWidth="80.0" text="Search"/>
                         <TableView fx:id="tblProductParts" layoutY="296.0" prefHeight="200.0" prefWidth="502.0">
                             <columns>
@@ -106,7 +106,9 @@
                         onAction="#handleCancel"
                         layoutX="801.0" layoutY="4.0" mnemonicParsing="false" prefWidth="80.0"
                         text="Cancel"/>
-                <Button fx:id="btnProductSave" layoutX="712.0" layoutY="4.0" mnemonicParsing="false" prefWidth="80.0"
+                <Button fx:id="btnProductSave"
+                        onAction="#handleSave"
+                        layoutX="712.0" layoutY="4.0" mnemonicParsing="false" prefWidth="80.0"
                         text="Save"/>
             </children>
         </Pane>

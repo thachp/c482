@@ -14,7 +14,7 @@ import java.util.logging.Logger;
 public class Main extends Application {
 
     final static int APP_WIDTH = 900;
-    final static int APP_HEIGHT = 425;
+    final static int APP_HEIGHT = 450;
 
     private Stage stage;
 
@@ -33,7 +33,7 @@ public class Main extends Application {
         try {
             stage = primaryStage;
             gotoMain(APP_WIDTH, APP_HEIGHT);
-            primaryStage.initStyle(StageStyle.UNDECORATED);
+            //primaryStage.initStyle(StageStyle.UNDECORATED);
             primaryStage.show();
         } catch (Exception ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);

@@ -15,7 +15,7 @@ import java.util.ResourceBundle;
 public class PartController implements Initializable {
 
     final static int PART_WIDTH = 500;
-    final static int PART_HEIGHT = 425;
+    final static int PART_HEIGHT = 450;
 
     @FXML
     private TextField txtPartID;
