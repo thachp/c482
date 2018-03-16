@@ -24,7 +24,7 @@ public class Product {
         this.productId = new SimpleIntegerProperty(this.generateProdId());
     }
 
-    public Product(String partName, String  inventoryLevel, String partMin,
+    public Product(String partName, String inventoryLevel, String partMin,
                    String partMax, String partPrice) {
         this.productId = new SimpleIntegerProperty(this.generateProdId());
         this.name = new SimpleStringProperty(partName);
@@ -109,28 +109,16 @@ public class Product {
 
     public boolean removeAssociatedPart(int partId) {
 
-        // a part has been removed from arraylist
-        boolean deleted = false;
-        Iterator<Part> it = this.associatedParts.iterator();
-        while (it.hasNext()) {
-            if (it.next().getPartId() == partId) {
-                it.remove();
-                deleted = true;
-                break;
-            }
-        }
+        Part part = lookupAssociatedPart(partId);
+        return this.associatedParts.remove(part);
 
-        return deleted;
-     }
+    }
 
     public Part lookupAssociatedPart(int partId) {
-        // a part has been removed from arraylist
         Part part = null;
-
-        Iterator<Part> it = this.associatedParts.iterator();
-        while (it.hasNext()) {
-            if (it.next().getPartId() == partId) {
-                part = it.next();
+        for (Part p : this.associatedParts) {
+            if (p.getPartId() == partId) {
+                part = p;
                 break;
             }
         }

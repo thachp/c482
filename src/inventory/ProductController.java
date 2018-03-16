@@ -23,8 +23,6 @@ public class ProductController implements Initializable {
     final static int PRODUCT_WIDTH = 900;
     final static int PRODUCT_HEIGHT = 625;
 
-    private Product myProduct;
-
     private ObservableList<Part> allParts = FXCollections.observableArrayList();
 
     @FXML
@@ -102,7 +100,6 @@ public class ProductController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
-        myProduct = new Product();
         initializeAllParts();
         initializeProdParts();
         restrictInput(txtProductMinimum);
@@ -111,19 +108,30 @@ public class ProductController implements Initializable {
         handlePrice();
     }
 
+    /**
+     * Initialize tableview with inventory data
+     */
     private void initializeAllParts() {
 
         // get parts from inventory
+        // clone it so we ll be working on a different database
         this.allParts.addAll(Inventory.getInstance().getAllParts());
 
         allPartIdColumn.setCellValueFactory(cellData -> cellData.getValue().partIdProperty());
         allPartNameColumn.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
         allPartInventoryLevelColumn.setCellValueFactory(cellData -> cellData.getValue().inStockProperty());
+
+        // format price as in dollar format
         allPartPriceColumn.setCellValueFactory(cellData ->
                 Bindings.format("%.2f", cellData.getValue().priceProperty()));
+
+        // set items in tableview
         tblAllParts.setItems(this.allParts);
     }
 
+    /**
+     * Initialize tableview for parts belonging to a product in context.
+     */
     private void initializeProdParts() {
         prodPartIdColumn.setCellValueFactory(cellData -> cellData.getValue().partIdProperty());
         prodPartNameColumn.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
@@ -132,6 +140,10 @@ public class ProductController implements Initializable {
                 Bindings.format("%.2f", cellData.getValue().priceProperty()));
     }
 
+    /**
+     * Get product metadata ie parts and display them in the form as field values.
+     * @param product
+     */
     public void handleEditProduct(Product product) {
         txtProductId.setText(Integer.toString(product.getProductId()));
         txtProductName.setText(product.getName());
@@ -140,8 +152,30 @@ public class ProductController implements Initializable {
         txtProductMaximum.setText(Integer.toString(product.getMax()));
         txtProductPrice.setText(Double.toString(product.getPrice()));
         tblProductParts.setItems(product.getAssociatedParts());
+
+        // only show parts that don't exist in the productList
+        // complexity: N^2
+
+        ObservableList<Part> allParts = Inventory.getInstance().getAllParts();
+        tblAllParts.setItems(null);
+
+        ObservableList<Part> newParts = FXCollections.observableArrayList();;
+        for (Part p : allParts) {
+            if(product.lookupAssociatedPart(p.getPartId()) == null) {
+                newParts.add(p);
+            }
+        }
+
+        tblAllParts.setItems(newParts);
     }
 
+
+    /**
+     * Move selected parts from Parts inventory and displa them in product tables.
+     * Lower tableview all associated parts belong to a product.
+     * ONE product MANY parts relationship.
+     * @param event
+     */
     @FXML
     private void addPart(ActionEvent event) {
         Part selectedPart = tblAllParts.getSelectionModel().getSelectedItem();
@@ -229,6 +263,9 @@ public class ProductController implements Initializable {
         }
     }
 
+
+    // Set label scene
+    // @TODOs find better option?
     public void setSceneName(String name) {
         txtProductScene.setText(name);
     }
@@ -240,6 +277,7 @@ public class ProductController implements Initializable {
             }
         });
     }
+
 
     @FXML
     private void handleCancel(ActionEvent event) {
@@ -261,17 +299,12 @@ public class ProductController implements Initializable {
             // Compare first name and last name of every person with filter text.
             String lowerCaseFilter = txtSearchPart.getText().toLowerCase();
 
-            if (part.getName().toLowerCase().contains(lowerCaseFilter)) {
-                return true; // Filter matches first name.
-            }
-            return false; // Does not match.
+            return part.getName().toLowerCase().contains(lowerCaseFilter);
         });
 
         SortedList<Part> sortedData = new SortedList<>(filteredData);
         sortedData.comparatorProperty().bind(tblAllParts.comparatorProperty());
         tblAllParts.setItems(sortedData);
     }
-
-
 
 }
