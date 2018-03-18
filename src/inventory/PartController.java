@@ -12,7 +12,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 
-public class PartController implements Initializable {
+public class PartController implements Initializable, Utility {
 
     final static int PART_WIDTH = 500;
     final static int PART_HEIGHT = 450;
@@ -65,17 +65,26 @@ public class PartController implements Initializable {
         return instance;
     }
 
+
+    /**
+     * Initialize form, restrict integer input only accept Integer using REGEX
+     * @param url
+     * @param rb
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+
         RadioButton selectedRadioButton = (RadioButton) partRadioGroup.getSelectedToggle();
         this.toggleGroupValue = selectedRadioButton.getText();
 
         handleSourcePartToggle();
+
+        // switch company name and machine id dependent radiogroup solution
         handleMachine();
-        restrictInput(txtPartMin);
-        restrictInput(txtPartMax);
-        restrictInput(txtPartInventory);
-        handlePrice();
+        restrictInput(txtPartMin,"[0-9]*");
+        restrictInput(txtPartMax,"[0-9]*");
+        restrictInput(txtPartInventory,"[0-9]*");
+        restrictInput(txtPartPrice, "[0-9\\.]*");
 
     }
 
@@ -86,7 +95,7 @@ public class PartController implements Initializable {
         txtPartInventory.setText(Integer.toString(part.getInStock()));
         txtPartMin.setText(Integer.toString(part.getMin()));
         txtPartMax.setText(Integer.toString(part.getMax()));
-        txtPartPrice.setText(Double.toString(part.getPrice()));
+        txtPartPrice.setText(toPriceFormat(part.getPrice()));
 
 
         if (part.getClass() == Inhouse.class) {
@@ -116,19 +125,11 @@ public class PartController implements Initializable {
         String partMax = txtPartMax.getText();
         String partPrice = txtPartPrice.getText();
 
-        if (partName.length() == 0 || inventoryLevel.length() == 0 ||
-                partSource.length() == 0 || partMin.length() == 0 ||
-                partPrice.length() == 0 || partMax.length() == 0) {
-            alertInfo("Please complete all fields!");
-        } else {
+        updatePart(partName, inventoryLevel, partSource, partMin, partMax, partPrice);
+        insertPart(partName, inventoryLevel, partSource, partMin, partMax, partPrice);
 
-            // update
-            updatePart(partName, inventoryLevel, partSource, partMin, partMax, partPrice);
-            insertPart(partName, inventoryLevel, partSource, partMin, partMax, partPrice);
-
-            // submit part data to inventory and return
-            Main.getInstance().gotoMain(Main.APP_WIDTH, Main.APP_HEIGHT);
-        }
+        // submit part data to inventory and return
+        Main.getInstance().gotoMain(Main.APP_WIDTH, Main.APP_HEIGHT);
     }
 
     // insert
@@ -165,33 +166,27 @@ public class PartController implements Initializable {
         if (toggleGroupValue.contains("In-House") && !txtPartID.getText().isEmpty()) {
 
             int partId = Integer.parseInt(txtPartID.getText());
-            Part thePart = Inventory.getInstance().lookupPart(partId);
-            Inventory.getInstance().deletePart(thePart);
-
-            Inhouse newPart = new Inhouse(partId, partName, inventoryLevel,
-                    partSource, partMin, partMax, partPrice);
-            Inventory.getInstance().addPart(newPart);
-        }
+            Inhouse thePart = (Inhouse) Inventory.getInstance().lookupPart(partId);
+            thePart.setName(partName);
+            thePart.setInStock(toInteger(inventoryLevel));
+            thePart.setMachineId(toInteger(partSource));
+            thePart.setMin(toInteger(partMin));
+            thePart.setMax(toInteger(partMax));
+            thePart.setPrice(toDouble(partPrice));
+         }
 
         if (toggleGroupValue.contains("Outsourced") && !txtPartID.getText().isEmpty()) {
 
             int partId = Integer.parseInt(txtPartID.getText());
-            Part thePart = Inventory.getInstance().lookupPart(partId);
-            Inventory.getInstance().deletePart(thePart);
+            Outsourced thePart = (Outsourced) Inventory.getInstance().lookupPart(partId);
 
-            Outsourced newPart = new Outsourced(partId, partName, inventoryLevel,
-                    partSource, partMin, partMax, partPrice);
-            Inventory.getInstance().addPart(newPart);
+            thePart.setName(partName);
+            thePart.setInStock(toInteger(inventoryLevel));
+            thePart.setCompanyName(partSource);
+            thePart.setMin(toInteger(partMin));
+            thePart.setMax(toInteger(partMax));
+            thePart.setPrice(toDouble(partPrice));
         }
-
-    }
-
-
-    private void alertInfo(String body) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setHeaderText("Information");
-        alert.setContentText(body);
-        alert.showAndWait();
 
     }
 
@@ -208,22 +203,6 @@ public class PartController implements Initializable {
         txtPartSource.textProperty().addListener((observable, oldValue, newValue) -> {
             if (toggleGroupValue.contains("In-House") && !newValue.matches("[0-9]*")) {
                 txtPartSource.setText(oldValue);
-            }
-        });
-    }
-
-    private void restrictInput(TextField tf) {
-        tf.textProperty().addListener((observable, oldValue, newValue) -> {
-            if (!newValue.matches("[0-9]*")) {
-                tf.setText(oldValue);
-            }
-        });
-    }
-
-    private void handlePrice() {
-        txtPartPrice.textProperty().addListener((observable, oldValue, newValue) -> {
-            if (!newValue.matches("([0-9.]*)")) {
-                txtPartPrice.setText(oldValue);
             }
         });
     }
@@ -261,7 +240,6 @@ public class PartController implements Initializable {
                         labelPartSource.setText(companyName);
                         txtPartSource.setPromptText(companyName);
                     }
-
                     txtPartSource.setText("");
                 }
 

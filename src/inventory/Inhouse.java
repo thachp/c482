@@ -4,7 +4,7 @@ import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
-public class Inhouse extends Part {
+public class Inhouse extends Part implements Utility {
 
     private SimpleIntegerProperty machineId;
 
@@ -13,23 +13,11 @@ public class Inhouse extends Part {
 
         this.partId = new SimpleIntegerProperty(this.generatePartId());
         this.name = new SimpleStringProperty(partName);
-        this.inStock = new SimpleIntegerProperty(Integer.parseInt(inventoryLevel));
-        this.machineId = new SimpleIntegerProperty(Integer.parseInt(machineId));
-        this.min = new SimpleIntegerProperty(Integer.parseInt(partMin));
-        this.max = new SimpleIntegerProperty(Integer.parseInt(partMax));
-        this.price = new SimpleDoubleProperty(Double.parseDouble(partPrice));
-    }
-
-    public Inhouse(int partId, String partName, String inventoryLevel,
-                   String machineId, String partMin, String partMax, String partPrice) {
-
-        this.partId = new SimpleIntegerProperty(partId);
-        this.name = new SimpleStringProperty(partName);
-        this.inStock = new SimpleIntegerProperty(Integer.parseInt(inventoryLevel));
-        this.machineId = new SimpleIntegerProperty(Integer.parseInt(machineId));
-        this.min = new SimpleIntegerProperty(Integer.parseInt(partMin));
-        this.max = new SimpleIntegerProperty(Integer.parseInt(partMax));
-        this.price = new SimpleDoubleProperty(Double.parseDouble(partPrice));
+        this.inStock = new SimpleIntegerProperty(toInteger(inventoryLevel));
+        this.machineId = new SimpleIntegerProperty(toInteger(machineId));
+        this.min = new SimpleIntegerProperty(toInteger(partMin));
+        this.max = new SimpleIntegerProperty(toInteger(partMax));
+        this.price = new SimpleDoubleProperty(toDouble(partPrice));
     }
 
     public void setMachineId(int id) {

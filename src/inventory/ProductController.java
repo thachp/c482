@@ -18,7 +18,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 
-public class ProductController implements Initializable {
+public class ProductController implements Initializable, Utility {
 
     final static int PRODUCT_WIDTH = 900;
     final static int PRODUCT_HEIGHT = 625;
@@ -102,10 +102,10 @@ public class ProductController implements Initializable {
 
         initializeAllParts();
         initializeProdParts();
-        restrictInput(txtProductMinimum);
-        restrictInput(txtProductMaximum);
-        restrictInput(txtProductInventory);
-        handlePrice();
+        restrictInput(txtProductMinimum, "[0-9]*");
+        restrictInput(txtProductMaximum, "[0-9]*");
+        restrictInput(txtProductInventory, "[0-9]*");
+        restrictInput(txtProductPrice, "[0-9\\.]*");
     }
 
     /**
@@ -123,7 +123,7 @@ public class ProductController implements Initializable {
 
         // format price as in dollar format
         allPartPriceColumn.setCellValueFactory(cellData ->
-                Bindings.format("%.2f", cellData.getValue().priceProperty()));
+                Bindings.format("$%.2f", cellData.getValue().priceProperty()));
 
         // set items in tableview
         tblAllParts.setItems(this.allParts);
@@ -137,7 +137,7 @@ public class ProductController implements Initializable {
         prodPartNameColumn.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
         prodPartInventoryLevelColumn.setCellValueFactory(cellData -> cellData.getValue().inStockProperty());
         prodPartPriceColumn.setCellValueFactory(cellData ->
-                Bindings.format("%.2f", cellData.getValue().priceProperty()));
+                Bindings.format("$%.2f", cellData.getValue().priceProperty()));
     }
 
     /**
@@ -150,7 +150,7 @@ public class ProductController implements Initializable {
         txtProductInventory.setText(Integer.toString(product.getInStock()));
         txtProductMinimum.setText(Integer.toString(product.getMin()));
         txtProductMaximum.setText(Integer.toString(product.getMax()));
-        txtProductPrice.setText(Double.toString(product.getPrice()));
+        txtProductPrice.setText(toPriceFormat(product.getPrice()));
         tblProductParts.setItems(product.getAssociatedParts());
 
         // only show parts that don't exist in the productList
@@ -165,7 +165,6 @@ public class ProductController implements Initializable {
                 newParts.add(p);
             }
         }
-
         tblAllParts.setItems(newParts);
     }
 
@@ -184,7 +183,6 @@ public class ProductController implements Initializable {
             tblAllParts.getItems().remove(selectedPart);
             tblProductParts.getItems().add(selectedPart);
         }
-
     }
 
     @FXML
@@ -194,17 +192,7 @@ public class ProductController implements Initializable {
             tblAllParts.getItems().add(selectedPart);
             tblProductParts.getItems().remove(selectedPart);
         }
-
     }
-
-    private void handlePrice() {
-        txtProductPrice.textProperty().addListener((observable, oldValue, newValue) -> {
-            if (!newValue.matches("([0-9.]*)")) {
-                txtProductPrice.setText(oldValue);
-            }
-        });
-    }
-
 
     @FXML
     private void handleSave(ActionEvent event) {
@@ -230,18 +218,18 @@ public class ProductController implements Initializable {
 
             int productId = Integer.parseInt(txtProductId.getText());
             Product theProduct = Inventory.getInstance().lookupProduct(productId);
-            Inventory.getInstance().removeProduct(productId);
 
-            Product newProduct = new Product(productName, productInventory, productMin, productMax, productPrice);
+            theProduct.setName(productName);
+            theProduct.setInStock(toInteger(productInventory));
+            theProduct.setMin(toInteger(productMin));
+            theProduct.setMax(toInteger(productMax));
+            theProduct.setPrice(toDouble(productPrice));
+
             ObservableList<Part> parts = tblProductParts.getItems();
-
+            
             for (Part p : parts){
-                newProduct.addAssociatedPart(p);
+                theProduct.addAssociatedPart(p);
             }
-
-            // add product
-            Inventory.getInstance().addProduct(newProduct);
-
 
         }
     }
@@ -270,15 +258,6 @@ public class ProductController implements Initializable {
         txtProductScene.setText(name);
     }
 
-    private void restrictInput(TextField tf) {
-        tf.textProperty().addListener((observable, oldValue, newValue) -> {
-            if (!newValue.matches("[0-9]*")) {
-                tf.setText(oldValue);
-            }
-        });
-    }
-
-
     @FXML
     private void handleCancel(ActionEvent event) {
         Main.getInstance().gotoMain(Main.APP_WIDTH, Main.APP_HEIGHT);
@@ -289,16 +268,13 @@ public class ProductController implements Initializable {
     private void searchPart(ActionEvent event) {
         FilteredList<Part> filteredData = new FilteredList<>(Inventory.getInstance().getAllParts(), p -> true);
 
-
         filteredData.setPredicate(part -> {
-            // If filter text is empty, display all persons.
+            // If filter text is empty, display all parts.
             if (txtSearchPart.getText() == null || txtSearchPart.getLength() == 0) {
                 return true;
             }
-
-            // Compare first name and last name of every person with filter text.
+            // Compare part name of every part with filter text.
             String lowerCaseFilter = txtSearchPart.getText().toLowerCase();
-
             return part.getName().toLowerCase().contains(lowerCaseFilter);
         });
 

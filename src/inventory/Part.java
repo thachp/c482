@@ -83,7 +83,7 @@ abstract public class Part {
         Random rand = new Random();
         int rand1 = rand.nextInt(100);
         int rand2 = rand.nextInt(100);
-        return (int) rand1 * rand2;
+        return rand1 * rand2;
     }
 
 }

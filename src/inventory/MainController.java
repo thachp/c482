@@ -96,7 +96,7 @@ public class MainController implements Initializable {
         partNameColumn.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
         partInventoryLevelColumn.setCellValueFactory(cellData -> cellData.getValue().inStockProperty());
         productPriceColumn.setCellValueFactory(cellData ->
-                Bindings.format("%.2f", cellData.getValue().priceProperty()));
+                Bindings.format("$%.2f", cellData.getValue().priceProperty()));
         tblParts.setItems(Inventory.getInstance().getAllParts());
     }
 
@@ -105,7 +105,7 @@ public class MainController implements Initializable {
         productNameColumn.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
         productInventoryLevelColumn.setCellValueFactory(cellData -> cellData.getValue().inStockProperty());
         partPriceColumn.setCellValueFactory(cellData ->
-                Bindings.format("%.2f", cellData.getValue().priceProperty()));
+                Bindings.format("$%.2f", cellData.getValue().priceProperty()));
         tblProducts.setItems(Inventory.getInstance().getProducts());
 
     }
@@ -202,11 +202,7 @@ public class MainController implements Initializable {
 
             // Compare first name and last name of every person with filter text.
             String lowerCaseFilter = txtSearchPart.getText().toLowerCase();
-
-            if (part.getName().toLowerCase().contains(lowerCaseFilter)) {
-                return true; // Filter matches first name.
-            }
-            return false; // Does not match.
+            return part.getName().toLowerCase().contains(lowerCaseFilter);
         });
 
         SortedList<Part> sortedData = new SortedList<>(filteredData);

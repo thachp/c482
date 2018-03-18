@@ -3,11 +3,6 @@ package inventory;
 import javafx.beans.property.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.fxml.FXML;
-import javafx.scene.control.TableView;
-
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.Random;
 
 public class Product {
@@ -19,10 +14,6 @@ public class Product {
     private SimpleIntegerProperty min;
     private SimpleIntegerProperty max;
     private SimpleDoubleProperty price;
-
-    public Product() {
-        this.productId = new SimpleIntegerProperty(this.generateProdId());
-    }
 
     public Product(String partName, String inventoryLevel, String partMin,
                    String partMax, String partPrice) {
@@ -100,7 +91,10 @@ public class Product {
     }
 
     public void addAssociatedPart(Part part) {
-        this.associatedParts.add(part);
+        // make sure it does not exist
+        if(lookupAssociatedPart(part.getPartId()) == null) {
+            this.associatedParts.add(part);
+        }
     }
 
     public ObservableList<Part> getAssociatedParts() {
@@ -108,10 +102,7 @@ public class Product {
     }
 
     public boolean removeAssociatedPart(int partId) {
-
-        Part part = lookupAssociatedPart(partId);
-        return this.associatedParts.remove(part);
-
+        return this.associatedParts.remove(lookupAssociatedPart(partId));
     }
 
     public Part lookupAssociatedPart(int partId) {

@@ -5,6 +5,7 @@ import javafx.collections.ObservableList;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Random;
 
 public class Inventory {
 
@@ -38,9 +39,7 @@ public class Inventory {
     }
 
     public Product lookupProduct(int productId) {
-
         Product product = null;
-
         for (Product p : products){
 
             if(p.getProductId() == productId) {
@@ -48,7 +47,6 @@ public class Inventory {
                 break;
             }
         }
-
         return product;
     }
 
@@ -73,11 +71,11 @@ public class Inventory {
     }
 
     public void updateProduct(int productId) {
+
         // not sure what to do
     }
 
     public void updatePart(int partId) {
         // not sure what // TODO: 3/3/18
     }
-
 }
