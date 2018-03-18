@@ -2,8 +2,6 @@ package inventory;
 
 import javafx.beans.property.*;
 
-import java.util.Random;
-
 abstract public class Part {
 
     protected SimpleIntegerProperty partId;
@@ -66,7 +64,6 @@ abstract public class Part {
         return this.inStock.get();
     }
 
-
     public IntegerProperty inStockProperty() {
         return inStock;
     }
@@ -77,13 +74,6 @@ abstract public class Part {
 
     public int getMax() {
         return this.max.get();
-    }
-
-    public int generatePartId() {
-        Random rand = new Random();
-        int rand1 = rand.nextInt(100);
-        int rand2 = rand.nextInt(100);
-        return rand1 * rand2;
     }
 
 }

@@ -3,6 +3,7 @@ package inventory;
 import javafx.scene.control.TextField;
 
 import java.text.DecimalFormat;
+import java.util.Random;
 
 public interface Utility {
 
@@ -27,5 +28,20 @@ public interface Utility {
             }
         });
     }
+
+    default int generatePartId() {
+        Random rand = new Random();
+        int rand1 = rand.nextInt(100);
+        int rand2 = rand.nextInt(100);
+        return rand1 * rand2;
+    }
+
+    default int generateProdId() {
+        Random rand = new Random();
+        int rand1 = rand.nextInt(100);
+        int rand2 = rand.nextInt(100);
+        return (int) rand1 * rand2;
+    }
+
 
 }

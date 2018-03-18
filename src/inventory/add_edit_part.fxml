@@ -59,7 +59,7 @@
                         <Label fx:id="labelPartSource" text="Company Name" GridPane.rowIndex="5" />
                         <TextField fx:id="txtPartID" disable="true" editable="false" promptText="Auto Gen - Disabled" style="-fx-background-color: #CCC;" GridPane.columnIndex="1" />
                         <TextField fx:id="txtPartName" promptText="Part Name" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <TextField fx:id="txtPartInventory" promptText="Inventory Level" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField fx:id="txtPartInventory" text="0" promptText="Inventory Level" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                   <TextField fx:id="txtPartPrice" promptText="Price" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                         <TextField fx:id="txtPartMin" promptText="Min" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                         <TextField fx:id="txtPartSource" promptText="Company Name" GridPane.columnIndex="1" GridPane.rowIndex="5" />

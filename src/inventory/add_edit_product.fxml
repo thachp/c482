@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
@@ -29,7 +30,7 @@
                                 <Label text="Minimum" GridPane.rowIndex="4" />
                                 <TextField fx:id="txtProductId" disable="true" editable="false" promptText="Auto Gen - Disabled" style="-fx-background-color: #CCC;" GridPane.columnIndex="1" />
                                 <TextField fx:id="txtProductName" promptText="Product Name" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                <TextField fx:id="txtProductInventory" promptText="Inventory Level" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                <TextField fx:id="txtProductInventory" promptText="Inventory Level" text="0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                                 <TextField fx:id="txtProductPrice" promptText="Price" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                         <TextField fx:id="txtProductMinimum" promptText="Minimum" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                         <TextField fx:id="txtProductMaximum" promptText="Maximum" GridPane.columnIndex="1" GridPane.rowIndex="5" />
@@ -67,7 +68,7 @@
                         </TableView>
                         <Button fx:id="btnAddPart" layoutX="421.0" layoutY="259.0" mnemonicParsing="false" onAction="#addPart" prefWidth="80.0" text="Add" />
                         <Button fx:id="btnDeletePart" layoutX="421.0" layoutY="506.0" mnemonicParsing="false" onAction="#deletePart" prefWidth="80.0" text="Delete" />
-                        <TextField fx:id="txtSearchPart" layoutX="255.0" layoutY="9.0" prefHeight="27.0" prefWidth="245.0" />
+                        <TextField fx:id="txtSearchPart" layoutX="255.0" layoutY="9.0" prefHeight="27.0" prefWidth="245.0" promptText="Search Part Name..." />
                         <Button fx:id="btnSearchPart" layoutX="165.0" layoutY="9.0" mnemonicParsing="false" onAction="#searchPart" prefWidth="80.0" text="Search" />
                         <TableView fx:id="tblProductParts" layoutY="296.0" prefHeight="200.0" prefWidth="502.0">
                             <columns>

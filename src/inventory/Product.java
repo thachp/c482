@@ -3,9 +3,8 @@ package inventory;
 import javafx.beans.property.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import java.util.Random;
 
-public class Product {
+public class Product implements Utility{
 
     private ObservableList<Part> associatedParts = FXCollections.observableArrayList();
     private SimpleIntegerProperty productId;
@@ -17,7 +16,8 @@ public class Product {
 
     public Product(String partName, String inventoryLevel, String partMin,
                    String partMax, String partPrice) {
-        this.productId = new SimpleIntegerProperty(this.generateProdId());
+
+        this.productId = new SimpleIntegerProperty(generateProdId());
         this.name = new SimpleStringProperty(partName);
         this.inStock = new SimpleIntegerProperty(Integer.parseInt(inventoryLevel));
         this.min = new SimpleIntegerProperty(Integer.parseInt(partMin));
@@ -114,13 +114,6 @@ public class Product {
             }
         }
         return part;
-    }
-
-    public int generateProdId() {
-        Random rand = new Random();
-        int rand1 = rand.nextInt(100);
-        int rand2 = rand.nextInt(100);
-        return (int) rand1 * rand2;
     }
 
 }

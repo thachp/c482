@@ -170,20 +170,17 @@ public class MainController implements Initializable {
     private void handleSearchProduct(ActionEvent event) {
         FilteredList<Product> filteredData = new FilteredList<>(Inventory.getInstance().getProducts(), p -> true);
         filteredData.setPredicate(product -> {
-            // If filter text is empty, display all persons.
+            // If filter text is empty, display all products.
             if (txtSearchProduct.getText() == null || txtSearchProduct.getLength() == 0) {
                 return true;
             }
 
-            // Compare first name and last name of every person with filter text.
+            // Compare name of every products with filter text.
             String lowerCaseFilter = txtSearchProduct.getText().toLowerCase();
+            return product.getName().toLowerCase().contains(lowerCaseFilter);
 
-            if (product.getName().toLowerCase().contains(lowerCaseFilter)) {
-                return true; // Filter matches first name.
-            }
-            return false; // Does not match.
         });
-
+        
         SortedList<Product> sortedData = new SortedList<>(filteredData);
         sortedData.comparatorProperty().bind(tblProducts.comparatorProperty());
         tblProducts.setItems(sortedData);
@@ -195,12 +192,12 @@ public class MainController implements Initializable {
 
 
         filteredData.setPredicate(part -> {
-            // If filter text is empty, display all persons.
+            // If filter text is empty, display all parts.
             if (txtSearchPart.getText() == null || txtSearchPart.getLength() == 0) {
                 return true;
             }
 
-            // Compare first name and last name of every person with filter text.
+            // Compare part name of every parts with filter text.
             String lowerCaseFilter = txtSearchPart.getText().toLowerCase();
             return part.getName().toLowerCase().contains(lowerCaseFilter);
         });

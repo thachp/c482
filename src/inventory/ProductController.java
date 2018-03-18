@@ -76,12 +76,6 @@ public class ProductController implements Initializable, Utility {
     private TextField txtProductPrice;
 
     @FXML
-    private Button btnAddPart;
-
-    @FXML
-    private Button btnSearchPart;
-
-    @FXML
     private TextField txtSearchPart;
 
     @FXML
@@ -226,7 +220,7 @@ public class ProductController implements Initializable, Utility {
             theProduct.setPrice(toDouble(productPrice));
 
             ObservableList<Part> parts = tblProductParts.getItems();
-            
+
             for (Part p : parts){
                 theProduct.addAssociatedPart(p);
             }

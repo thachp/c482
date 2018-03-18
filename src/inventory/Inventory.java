@@ -3,10 +3,6 @@ package inventory;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.Random;
-
 public class Inventory {
 
     private ObservableList<Product> products = FXCollections.observableArrayList();
@@ -23,7 +19,6 @@ public class Inventory {
         this.products.add(product);
     }
 
-
     public ObservableList<Part> getAllParts() {
         return allParts;
     }
@@ -31,7 +26,6 @@ public class Inventory {
     public ObservableList<Product> getProducts() {
         return products;
     }
-
 
     public boolean removeProduct(int productId) {
         Product theProduct = lookupProduct(productId);
@@ -71,7 +65,6 @@ public class Inventory {
     }
 
     public void updateProduct(int productId) {
-
         // not sure what to do
     }
 

@@ -2,22 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/inventory/Utility.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/c482/inventory/MainController.class" afterPath="$PROJECT_DIR$/out/production/c482/inventory/MainController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/c482/inventory/PartController$1.class" afterPath="$PROJECT_DIR$/out/production/c482/inventory/PartController$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/c482/inventory/PartController.class" afterPath="$PROJECT_DIR$/out/production/c482/inventory/PartController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/c482/inventory/ProductController.class" afterPath="$PROJECT_DIR$/out/production/c482/inventory/ProductController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/inventory/Inhouse.java" afterPath="$PROJECT_DIR$/src/inventory/Inhouse.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/inventory/Inventory.java" afterPath="$PROJECT_DIR$/src/inventory/Inventory.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/inventory/MainController.java" afterPath="$PROJECT_DIR$/src/inventory/MainController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/inventory/Outsourced.java" afterPath="$PROJECT_DIR$/src/inventory/Outsourced.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/inventory/Part.java" afterPath="$PROJECT_DIR$/src/inventory/Part.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/inventory/PartController.java" afterPath="$PROJECT_DIR$/src/inventory/PartController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/inventory/Product.java" afterPath="$PROJECT_DIR$/src/inventory/Product.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/inventory/ProductController.java" afterPath="$PROJECT_DIR$/src/inventory/ProductController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/inventory/Utility.java" afterPath="$PROJECT_DIR$/src/inventory/Utility.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/inventory/add_edit_part.fxml" afterPath="$PROJECT_DIR$/src/inventory/add_edit_part.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/inventory/add_edit_product.fxml" afterPath="$PROJECT_DIR$/src/inventory/add_edit_product.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/inventory/main_screen.fxml" afterPath="$PROJECT_DIR$/src/inventory/main_screen.fxml" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -79,19 +73,19 @@
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="PartController.java" pinned="false" current-in-tab="true">
+          <file leaf-file-name="PartController.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/inventory/PartController.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.71945137">
-                  <caret line="241" column="21" selection-start-line="241" selection-start-column="21" selection-end-line="241" selection-end-column="21" />
+                <state vertical-scroll-proportion="-14.148149">
+                  <caret line="163" column="0" selection-start-line="163" selection-start-column="0" selection-end-line="163" selection-end-column="0" />
                   <folding>
                     <element signature="imports" expanded="true" />
                     <element signature="e#1126#1127#0" expanded="true" />
                     <element signature="e#1157#1158#0" expanded="true" />
                     <element signature="e#1207#1208#0" expanded="true" />
                     <element signature="e#1238#1239#0" expanded="true" />
-                    <element signature="e#5893#5894#0" expanded="true" />
-                    <element signature="e#5969#5970#0" expanded="true" />
+                    <element signature="e#5928#5929#0" expanded="true" />
+                    <element signature="e#6004#6005#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -101,17 +95,43 @@
             <entry file="file://$PROJECT_DIR$/src/inventory/Inhouse.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
-                  <caret line="11" column="66" selection-start-line="11" selection-start-column="66" selection-end-line="11" selection-end-column="66" />
+                  <caret line="29" column="1" selection-start-line="29" selection-start-column="1" selection-end-line="29" selection-end-column="1" />
                   <folding />
                 </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="main_screen.fxml" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/inventory/main_screen.fxml">
+              <provider editor-type-id="text-editor">
+                <state vertical-scroll-proportion="-4.2083335">
+                  <caret line="42" column="24" selection-start-line="42" selection-start-column="24" selection-end-line="42" selection-end-column="24" />
+                  <folding />
+                </state>
+              </provider>
+              <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+                <state />
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="add_edit_product.fxml" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/inventory/add_edit_product.fxml">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="-3.0943396">
+                  <caret line="32" column="71" selection-start-line="32" selection-start-column="71" selection-end-line="32" selection-end-column="71" />
+                  <folding />
+                </state>
+              </provider>
+              <provider editor-type-id="JavaFX-Scene-Builder">
+                <state />
               </provider>
             </entry>
           </file>
           <file leaf-file-name="add_edit_part.fxml" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/inventory/add_edit_part.fxml">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-0.5660377">
-                  <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+                <state vertical-scroll-proportion="-16.339622">
+                  <caret line="61" column="67" selection-start-line="61" selection-start-column="67" selection-end-line="61" selection-end-column="67" />
                   <folding />
                 </state>
               </provider>
@@ -124,13 +144,13 @@
             <entry file="file://$PROJECT_DIR$/src/inventory/Utility.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
-                  <caret line="30" column="1" selection-start-line="30" selection-start-column="1" selection-end-line="30" selection-end-column="1" />
+                  <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
                   <folding>
                     <element signature="imports" expanded="true" />
-                    <element signature="e#161#162#0" expanded="true" />
-                    <element signature="e#207#208#0" expanded="true" />
-                    <element signature="e#252#253#0" expanded="true" />
-                    <element signature="e#300#301#0" expanded="true" />
+                    <element signature="e#186#187#0" expanded="true" />
+                    <element signature="e#232#233#0" expanded="true" />
+                    <element signature="e#277#278#0" expanded="true" />
+                    <element signature="e#325#326#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -140,11 +160,11 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="ProductController.java" pinned="false" current-in-tab="true">
+          <file leaf-file-name="ProductController.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/inventory/ProductController.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="2.3389626">
-                  <caret line="228" column="12" selection-start-line="228" selection-start-column="12" selection-end-line="228" selection-end-column="12" />
+                <state vertical-scroll-proportion="81.96296">
+                  <caret line="76" column="0" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -156,7 +176,7 @@
             <entry file="file://$PROJECT_DIR$/src/inventory/MainController.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
-                  <caret line="214" column="0" selection-start-line="214" selection-start-column="0" selection-end-line="215" selection-end-column="0" />
+                  <caret line="182" column="8" selection-start-line="182" selection-start-column="8" selection-end-line="182" selection-end-column="8" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -168,11 +188,11 @@
             <entry file="file://$PROJECT_DIR$/src/inventory/Product.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
-                  <caret line="79" column="0" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
+                  <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
                   <folding>
                     <element signature="imports" expanded="true" />
-                    <element signature="e#2528#2529#0" expanded="true" />
-                    <element signature="e#2571#2572#0" expanded="true" />
+                    <element signature="e#2517#2518#0" expanded="true" />
+                    <element signature="e#2560#2561#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -182,26 +202,26 @@
             <entry file="file://$PROJECT_DIR$/src/inventory/Part.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
-                  <caret line="19" column="24" selection-start-line="19" selection-start-column="15" selection-end-line="19" selection-end-column="24" />
+                  <caret line="4" column="22" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
                   <folding>
-                    <element signature="imports" expanded="true" />
-                    <element signature="e#1260#1261#0" expanded="true" />
-                    <element signature="e#1301#1302#0" expanded="true" />
+                    <element signature="e#1234#1235#0" expanded="true" />
+                    <element signature="e#1275#1276#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Inventory.java" pinned="false" current-in-tab="false">
+          <file leaf-file-name="Inventory.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/inventory/Inventory.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="47" column="13" selection-start-line="47" selection-start-column="13" selection-end-line="47" selection-end-column="13" />
+                <state vertical-scroll-proportion="0.27141133">
+                  <caret line="17" column="18" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
                   <folding>
-                    <element signature="e#564#565#0" expanded="true" />
-                    <element signature="e#606#607#0" expanded="true" />
-                    <element signature="e#1244#1245#0" expanded="true" />
-                    <element signature="e#1283#1284#0" expanded="true" />
+                    <element signature="imports" expanded="true" />
+                    <element signature="e#483#484#0" expanded="true" />
+                    <element signature="e#525#526#0" expanded="true" />
+                    <element signature="e#1161#1162#0" expanded="true" />
+                    <element signature="e#1200#1201#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -240,19 +260,19 @@
         <option value="$PROJECT_DIR$/src/inventory/App.java" />
         <option value="$PROJECT_DIR$/src/inventory/ScreenController.java" />
         <option value="$PROJECT_DIR$/src/inventory/MainScreenController.java" />
-        <option value="$PROJECT_DIR$/src/inventory/main_screen.fxml" />
         <option value="$PROJECT_DIR$/src/inventory/Main.java" />
-        <option value="$PROJECT_DIR$/src/inventory/Part.java" />
-        <option value="$PROJECT_DIR$/src/inventory/MainController.java" />
-        <option value="$PROJECT_DIR$/src/inventory/add_edit_part.fxml" />
-        <option value="$PROJECT_DIR$/src/inventory/add_edit_product.fxml" />
         <option value="$PROJECT_DIR$/src/inventory/Outsourced.java" />
-        <option value="$PROJECT_DIR$/src/inventory/Product.java" />
-        <option value="$PROJECT_DIR$/src/inventory/Inventory.java" />
-        <option value="$PROJECT_DIR$/src/inventory/PartController.java" />
         <option value="$PROJECT_DIR$/src/inventory/Inhouse.java" />
+        <option value="$PROJECT_DIR$/src/inventory/PartController.java" />
+        <option value="$PROJECT_DIR$/src/inventory/Part.java" />
+        <option value="$PROJECT_DIR$/src/inventory/Inventory.java" />
+        <option value="$PROJECT_DIR$/src/inventory/MainController.java" />
         <option value="$PROJECT_DIR$/src/inventory/Utility.java" />
+        <option value="$PROJECT_DIR$/src/inventory/main_screen.fxml" />
         <option value="$PROJECT_DIR$/src/inventory/ProductController.java" />
+        <option value="$PROJECT_DIR$/src/inventory/Product.java" />
+        <option value="$PROJECT_DIR$/src/inventory/add_edit_product.fxml" />
+        <option value="$PROJECT_DIR$/src/inventory/add_edit_part.fxml" />
       </list>
     </option>
   </component>
@@ -772,8 +792,8 @@
             <element signature="e#1157#1158#0" expanded="true" />
             <element signature="e#1207#1208#0" expanded="true" />
             <element signature="e#1238#1239#0" expanded="true" />
-            <element signature="e#5893#5894#0" expanded="true" />
-            <element signature="e#5969#5970#0" expanded="true" />
+            <element signature="e#5928#5929#0" expanded="true" />
+            <element signature="e#6004#6005#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -830,9 +850,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="72" column="0" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1260#1261#0" expanded="true" />
-            <element signature="e#1301#1302#0" expanded="true" />
+            <element signature="e#1234#1235#0" expanded="true" />
+            <element signature="e#1275#1276#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -843,8 +862,8 @@
           <caret line="118" column="21" selection-start-line="118" selection-start-column="21" selection-end-line="118" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2528#2529#0" expanded="true" />
-            <element signature="e#2571#2572#0" expanded="true" />
+            <element signature="e#2517#2518#0" expanded="true" />
+            <element signature="e#2560#2561#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -854,10 +873,11 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="71" column="20" selection-start-line="63" selection-start-column="0" selection-end-line="71" selection-end-column="20" />
           <folding>
-            <element signature="e#564#565#0" expanded="true" />
-            <element signature="e#606#607#0" expanded="true" />
-            <element signature="e#1244#1245#0" expanded="true" />
-            <element signature="e#1283#1284#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#483#484#0" expanded="true" />
+            <element signature="e#525#526#0" expanded="true" />
+            <element signature="e#1161#1162#0" expanded="true" />
+            <element signature="e#1200#1201#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -894,8 +914,8 @@
             <element signature="e#1157#1158#0" expanded="true" />
             <element signature="e#1207#1208#0" expanded="true" />
             <element signature="e#1238#1239#0" expanded="true" />
-            <element signature="e#5893#5894#0" expanded="true" />
-            <element signature="e#5969#5970#0" expanded="true" />
+            <element signature="e#5928#5929#0" expanded="true" />
+            <element signature="e#6004#6005#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -944,9 +964,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="26" column="19" selection-start-line="26" selection-start-column="19" selection-end-line="26" selection-end-column="19" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1260#1261#0" expanded="true" />
-            <element signature="e#1301#1302#0" expanded="true" />
+            <element signature="e#1234#1235#0" expanded="true" />
+            <element signature="e#1275#1276#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -957,8 +976,8 @@
           <caret line="30" column="30" selection-start-line="30" selection-start-column="30" selection-end-line="30" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2528#2529#0" expanded="true" />
-            <element signature="e#2571#2572#0" expanded="true" />
+            <element signature="e#2517#2518#0" expanded="true" />
+            <element signature="e#2560#2561#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -968,10 +987,11 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="16" column="29" selection-start-line="16" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding>
-            <element signature="e#564#565#0" expanded="true" />
-            <element signature="e#606#607#0" expanded="true" />
-            <element signature="e#1244#1245#0" expanded="true" />
-            <element signature="e#1283#1284#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#483#484#0" expanded="true" />
+            <element signature="e#525#526#0" expanded="true" />
+            <element signature="e#1161#1162#0" expanded="true" />
+            <element signature="e#1200#1201#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -997,8 +1017,8 @@
             <element signature="e#1157#1158#0" expanded="true" />
             <element signature="e#1207#1208#0" expanded="true" />
             <element signature="e#1238#1239#0" expanded="true" />
-            <element signature="e#5893#5894#0" expanded="true" />
-            <element signature="e#5969#5970#0" expanded="true" />
+            <element signature="e#5928#5929#0" expanded="true" />
+            <element signature="e#6004#6005#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1018,10 +1038,11 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="72" column="13" selection-start-line="72" selection-start-column="13" selection-end-line="72" selection-end-column="13" />
           <folding>
-            <element signature="e#564#565#0" expanded="true" />
-            <element signature="e#606#607#0" expanded="true" />
-            <element signature="e#1244#1245#0" expanded="true" />
-            <element signature="e#1283#1284#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#483#484#0" expanded="true" />
+            <element signature="e#525#526#0" expanded="true" />
+            <element signature="e#1161#1162#0" expanded="true" />
+            <element signature="e#1200#1201#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1040,8 +1061,8 @@
           <caret line="10" column="18" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="18" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2528#2529#0" expanded="true" />
-            <element signature="e#2571#2572#0" expanded="true" />
+            <element signature="e#2517#2518#0" expanded="true" />
+            <element signature="e#2560#2561#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1110,17 +1131,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/inventory/main_screen.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.849056">
-          <caret line="65" column="52" selection-start-line="65" selection-start-column="39" selection-end-line="65" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_73.jdk/Contents/Home/src.zip!/java/lang/Integer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33272395">
@@ -1145,17 +1155,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/inventory/add_edit_part.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.5660377">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/inventory/Outsourced.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1164,23 +1163,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/inventory/add_edit_product.fxml">
+    <entry file="file://$PROJECT_DIR$/src/inventory/Inhouse.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.5660377">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="29" column="1" selection-start-line="29" selection-start-column="1" selection-end-line="29" selection-end-column="1" />
           <folding />
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/inventory/MainController.java">
+    <entry file="file://$PROJECT_DIR$/src/inventory/Utility.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="214" column="0" selection-start-line="214" selection-start-column="0" selection-end-line="215" selection-end-column="0" />
+          <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#186#187#0" expanded="true" />
+            <element signature="e#232#233#0" expanded="true" />
+            <element signature="e#277#278#0" expanded="true" />
+            <element signature="e#325#326#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1188,62 +1188,46 @@
     <entry file="file://$PROJECT_DIR$/src/inventory/Part.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="24" selection-start-line="19" selection-start-column="15" selection-end-line="19" selection-end-column="24" />
+          <caret line="4" column="22" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1260#1261#0" expanded="true" />
-            <element signature="e#1301#1302#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/inventory/Inhouse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="66" selection-start-line="11" selection-start-column="66" selection-end-line="11" selection-end-column="66" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/inventory/Inventory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="47" column="13" selection-start-line="47" selection-start-column="13" selection-end-line="47" selection-end-column="13" />
-          <folding>
-            <element signature="e#564#565#0" expanded="true" />
-            <element signature="e#606#607#0" expanded="true" />
-            <element signature="e#1244#1245#0" expanded="true" />
-            <element signature="e#1283#1284#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/inventory/Utility.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="30" column="1" selection-start-line="30" selection-start-column="1" selection-end-line="30" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#161#162#0" expanded="true" />
-            <element signature="e#207#208#0" expanded="true" />
-            <element signature="e#252#253#0" expanded="true" />
-            <element signature="e#300#301#0" expanded="true" />
+            <element signature="e#1234#1235#0" expanded="true" />
+            <element signature="e#1275#1276#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/inventory/PartController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.71945137">
-          <caret line="241" column="21" selection-start-line="241" selection-start-column="21" selection-end-line="241" selection-end-column="21" />
+        <state vertical-scroll-proportion="-14.148149">
+          <caret line="163" column="0" selection-start-line="163" selection-start-column="0" selection-end-line="163" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1126#1127#0" expanded="true" />
             <element signature="e#1157#1158#0" expanded="true" />
             <element signature="e#1207#1208#0" expanded="true" />
             <element signature="e#1238#1239#0" expanded="true" />
-            <element signature="e#5893#5894#0" expanded="true" />
-            <element signature="e#5969#5970#0" expanded="true" />
+            <element signature="e#5928#5929#0" expanded="true" />
+            <element signature="e#6004#6005#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/inventory/ProductController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="81.96296">
+          <caret line="76" column="0" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/inventory/MainController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="182" column="8" selection-start-line="182" selection-start-column="8" selection-end-line="182" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1251,23 +1235,60 @@
     <entry file="file://$PROJECT_DIR$/src/inventory/Product.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="79" column="0" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2528#2529#0" expanded="true" />
-            <element signature="e#2571#2572#0" expanded="true" />
+            <element signature="e#2517#2518#0" expanded="true" />
+            <element signature="e#2560#2561#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/inventory/ProductController.java">
+    <entry file="file://$PROJECT_DIR$/src/inventory/Inventory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.3389626">
-          <caret line="228" column="12" selection-start-line="228" selection-start-column="12" selection-end-line="228" selection-end-column="12" />
+        <state vertical-scroll-proportion="0.27141133">
+          <caret line="17" column="18" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#483#484#0" expanded="true" />
+            <element signature="e#525#526#0" expanded="true" />
+            <element signature="e#1161#1162#0" expanded="true" />
+            <element signature="e#1200#1201#0" expanded="true" />
           </folding>
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/inventory/add_edit_part.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-16.339622">
+          <caret line="61" column="67" selection-start-line="61" selection-start-column="67" selection-end-line="61" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/inventory/add_edit_product.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.0943396">
+          <caret line="32" column="71" selection-start-line="32" selection-start-column="71" selection-end-line="32" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/inventory/main_screen.fxml">
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.2083335">
+          <caret line="42" column="24" selection-start-line="42" selection-start-column="24" selection-end-line="42" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
     </entry>
   </component>

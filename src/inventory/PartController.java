@@ -162,7 +162,7 @@ public class PartController implements Initializable, Utility {
                             String partMax,
                             String partPrice) {
 
-
+        // Okay update if Id exist.
         if (toggleGroupValue.contains("In-House") && !txtPartID.getText().isEmpty()) {
 
             int partId = Integer.parseInt(txtPartID.getText());
