@@ -4,7 +4,7 @@ import javafx.beans.property.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-public class Product implements Utility{
+public class Product implements Utility {
 
     private ObservableList<Part> associatedParts = FXCollections.observableArrayList();
     private SimpleIntegerProperty productId;
@@ -19,10 +19,10 @@ public class Product implements Utility{
 
         this.productId = new SimpleIntegerProperty(generateProdId());
         this.name = new SimpleStringProperty(partName);
-        this.inStock = new SimpleIntegerProperty(Integer.parseInt(inventoryLevel));
-        this.min = new SimpleIntegerProperty(Integer.parseInt(partMin));
-        this.max = new SimpleIntegerProperty(Integer.parseInt(partMax));
-        this.price = new SimpleDoubleProperty(Double.parseDouble(partPrice));
+        this.inStock = new SimpleIntegerProperty(toInteger(inventoryLevel));
+        this.min = new SimpleIntegerProperty(toInteger(partMin));
+        this.max = new SimpleIntegerProperty(toInteger(partMax));
+        this.price = new SimpleDoubleProperty(toDouble(partPrice));
 
     }
 

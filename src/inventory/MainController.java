@@ -2,20 +2,18 @@ package inventory;
 
 import javafx.application.Platform;
 import javafx.beans.binding.Bindings;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
-import javafx.collections.transformation.FilteredList;
-import javafx.collections.transformation.SortedList;
+import javafx.scene.control.*;
 
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
-public class MainController implements Initializable {
+public class MainController implements Initializable, Utility {
 
     @FXML
     private TableView<Part> tblParts;
@@ -206,21 +204,59 @@ public class MainController implements Initializable {
         sortedData.comparatorProperty().bind(tblParts.comparatorProperty());
         tblParts.setItems(sortedData);
     }
+    
+    /**
+     * Delete a part. Require confirmation
+     * @param event
+     */
 
     @FXML
     private void handleDeletePart(ActionEvent event) {
 
         Part selectedPart = tblParts.getSelectionModel().getSelectedItem();
-        Inventory.getInstance().deletePart(selectedPart);
-        disableButtons();
+
+        if(selectedPart != null) {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Confirm");
+            alert.setHeaderText(null);
+            alert.setContentText("Are you sure?");
+
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == ButtonType.OK){
+                Inventory.getInstance().deletePart(selectedPart);
+            }
+            disableButtons();
+        }
 
     }
+
+    /**
+     * Delete a product. Require confirmation
+     * Exception -- preventing the user from deleting a product that has a part assigned to it
+     * @param event
+     */
 
     @FXML
     private void handleDeleteProduct(ActionEvent event) {
         Product selectedProduct = tblProducts.getSelectionModel().getSelectedItem();
-        Inventory.getInstance().removeProduct(selectedProduct.getProductId());
-        disableButtons();
+
+        if(selectedProduct != null) {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Confirm");
+            alert.setHeaderText(null);
+            alert.setContentText("Are you sure?");
+
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == ButtonType.OK){
+                try {
+                    validateDeleteProduct(selectedProduct);
+                    Inventory.getInstance().removeProduct(selectedProduct.getProductId());
+                    disableButtons();
+                } catch (Exception e) {
+                    dialog(e.getMessage());
+                }
+            }
+        }
     }
 
     @FXML

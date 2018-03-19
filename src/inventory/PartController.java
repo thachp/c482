@@ -9,6 +9,7 @@ import javafx.scene.control.*;
 import javafx.scene.text.Text;
 
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 
@@ -125,11 +126,17 @@ public class PartController implements Initializable, Utility {
         String partMax = txtPartMax.getText();
         String partPrice = txtPartPrice.getText();
 
-        updatePart(partName, inventoryLevel, partSource, partMin, partMax, partPrice);
-        insertPart(partName, inventoryLevel, partSource, partMin, partMax, partPrice);
+        // validate form
+        try {
+            validatePart(partName, inventoryLevel, partMin, partMax, partPrice);
+            updatePart(partName, inventoryLevel, partSource, partMin, partMax, partPrice);
+            insertPart(partName, inventoryLevel, partSource, partMin, partMax, partPrice);
 
-        // submit part data to inventory and return
-        Main.getInstance().gotoMain(Main.APP_WIDTH, Main.APP_HEIGHT);
+            // submit part data to inventory and return
+            Main.getInstance().gotoMain(Main.APP_WIDTH, Main.APP_HEIGHT);
+        } catch (Exception e) {
+            dialog(e.getMessage());
+        }
     }
 
     // insert
@@ -192,7 +199,17 @@ public class PartController implements Initializable, Utility {
 
     @FXML
     private void handleCancel(ActionEvent event) {
-        Main.getInstance().gotoMain(Main.APP_WIDTH, Main.APP_HEIGHT);
+
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirm");
+        alert.setHeaderText(null);
+        alert.setContentText("Are you sure?");
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == ButtonType.OK){
+            Main.getInstance().gotoMain(Main.APP_WIDTH, Main.APP_HEIGHT);
+        }
+
     }
 
     public void setSceneName(String name) {

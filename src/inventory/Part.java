@@ -2,7 +2,7 @@ package inventory;
 
 import javafx.beans.property.*;
 
-abstract public class Part {
+abstract public class Part implements Utility {
 
     protected SimpleIntegerProperty partId;
     protected SimpleStringProperty name;

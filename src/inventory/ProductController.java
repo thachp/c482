@@ -8,13 +8,11 @@ import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.text.Text;
 
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 
@@ -136,6 +134,7 @@ public class ProductController implements Initializable, Utility {
 
     /**
      * Get product metadata ie parts and display them in the form as field values.
+     *
      * @param product
      */
     public void handleEditProduct(Product product) {
@@ -153,9 +152,10 @@ public class ProductController implements Initializable, Utility {
         ObservableList<Part> allParts = Inventory.getInstance().getAllParts();
         tblAllParts.setItems(null);
 
-        ObservableList<Part> newParts = FXCollections.observableArrayList();;
+        ObservableList<Part> newParts = FXCollections.observableArrayList();
+        ;
         for (Part p : allParts) {
-            if(product.lookupAssociatedPart(p.getPartId()) == null) {
+            if (product.lookupAssociatedPart(p.getPartId()) == null) {
                 newParts.add(p);
             }
         }
@@ -167,13 +167,14 @@ public class ProductController implements Initializable, Utility {
      * Move selected parts from Parts inventory and displa them in product tables.
      * Lower tableview all associated parts belong to a product.
      * ONE product MANY parts relationship.
+     *
      * @param event
      */
     @FXML
     private void addPart(ActionEvent event) {
         Part selectedPart = tblAllParts.getSelectionModel().getSelectedItem();
 
-        if(selectedPart != null) {
+        if (selectedPart != null) {
             tblAllParts.getItems().remove(selectedPart);
             tblProductParts.getItems().add(selectedPart);
         }
@@ -182,9 +183,19 @@ public class ProductController implements Initializable, Utility {
     @FXML
     private void deletePart(ActionEvent event) {
         Part selectedPart = tblProductParts.getSelectionModel().getSelectedItem();
+
         if(selectedPart != null) {
-            tblAllParts.getItems().add(selectedPart);
-            tblProductParts.getItems().remove(selectedPart);
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Confirm");
+            alert.setHeaderText(null);
+            alert.setContentText("Are you sure?");
+
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == ButtonType.OK){
+
+                tblAllParts.getItems().add(selectedPart);
+                tblProductParts.getItems().remove(selectedPart);
+            }
         }
     }
 
@@ -197,18 +208,28 @@ public class ProductController implements Initializable, Utility {
         String productMax = txtProductMaximum.getText();
         String productPrice = txtProductPrice.getText();
 
-        // submit part data to inventory and return
-        addProduct(productName, productInventory, productMin, productMax, productPrice);
-        editProduct(productName, productInventory, productMin, productMax, productPrice);
+        // validate form
+        try {
 
-        // add product
-        Main.getInstance().gotoMain(Main.APP_WIDTH, Main.APP_HEIGHT);
+            // testing
+            ObservableList<Part> parts = tblProductParts.getItems();
+            validateProduct(productName, productInventory, productMin, productMax, productPrice, parts);
+
+            addProduct(productName, productInventory, productMin, productMax, productPrice);
+            editProduct(productName, productInventory, productMin, productMax, productPrice);
+
+            // submit part data to inventory and return
+            Main.getInstance().gotoMain(Main.APP_WIDTH, Main.APP_HEIGHT);
+        } catch (Exception e) {
+            dialog(e.getMessage());
+        }
+
     }
 
     private void editProduct(String productName, String productInventory,
                              String productMin, String productMax, String productPrice) {
 
-        if(!txtProductId.getText().isEmpty()) {
+        if (!txtProductId.getText().isEmpty()) {
 
             int productId = Integer.parseInt(txtProductId.getText());
             Product theProduct = Inventory.getInstance().lookupProduct(productId);
@@ -221,7 +242,7 @@ public class ProductController implements Initializable, Utility {
 
             ObservableList<Part> parts = tblProductParts.getItems();
 
-            for (Part p : parts){
+            for (Part p : parts) {
                 theProduct.addAssociatedPart(p);
             }
 
@@ -231,12 +252,12 @@ public class ProductController implements Initializable, Utility {
     private void addProduct(String productName, String productInventory,
                             String productMin, String productMax, String productPrice) {
 
-        if(txtProductId.getText().isEmpty()) {
+        if (txtProductId.getText().isEmpty()) {
             Product theProduct = new Product(productName, productInventory, productMin, productMax, productPrice);
 
             ObservableList<Part> parts = tblProductParts.getItems();
 
-            for (Part p : parts){
+            for (Part p : parts) {
                 theProduct.addAssociatedPart(p);
             }
 
@@ -254,9 +275,17 @@ public class ProductController implements Initializable, Utility {
 
     @FXML
     private void handleCancel(ActionEvent event) {
-        Main.getInstance().gotoMain(Main.APP_WIDTH, Main.APP_HEIGHT);
-    }
 
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirm");
+        alert.setHeaderText(null);
+        alert.setContentText("Are you sure?");
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == ButtonType.OK) {
+            Main.getInstance().gotoMain(Main.APP_WIDTH, Main.APP_HEIGHT);
+        }
+    }
 
     @FXML
     private void searchPart(ActionEvent event) {
