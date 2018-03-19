@@ -204,7 +204,7 @@ public class MainController implements Initializable, Utility {
         sortedData.comparatorProperty().bind(tblParts.comparatorProperty());
         tblParts.setItems(sortedData);
     }
-    
+
     /**
      * Delete a part. Require confirmation
      * @param event
@@ -262,6 +262,8 @@ public class MainController implements Initializable, Utility {
     @FXML
     private void handleExit(ActionEvent event) {
         Platform.exit();
+        System.exit(0);
+
     }
 
 

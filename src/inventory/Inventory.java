@@ -65,7 +65,7 @@ public class Inventory {
     }
 
     public void updateProduct(int productId) {
-        // not sure what to do
+        // not sure why this is needed, it is not in my implementation.
     }
 
     public void updatePart(int partId) {

@@ -3,7 +3,6 @@ package inventory;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
-
 import java.text.DecimalFormat;
 import java.util.Random;
 

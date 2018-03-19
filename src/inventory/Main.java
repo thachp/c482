@@ -1,14 +1,28 @@
 package inventory;
 
 import javafx.application.Application;
+import javafx.application.Platform;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
-
+import javafx.stage.WindowEvent;
+import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+/**
+ *
+ *  An application that manage products and parts inventory.
+ *
+ *  PT
+ * @author pthach2@wgu.edu
+ */
+
 
 public class Main extends Application {
 
@@ -29,10 +43,11 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) {
+
         try {
             stage = primaryStage;
+            Platform.setImplicitExit(false);
             gotoMain(APP_WIDTH, APP_HEIGHT);
-            //primaryStage.initStyle(StageStyle.UNDECORATED);
             primaryStage.show();
         } catch (Exception ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
@@ -73,9 +88,29 @@ public class Main extends Application {
         } else {
             stage.getScene().setRoot(root);
         }
+
         stage.setWidth(width);
         stage.setHeight(height);
         stage.setResizable(false);
+
+        stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+            @Override
+            public void handle(WindowEvent event) {
+
+                if (!fxml.equals("main_screen.fxml")) {
+                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                    alert.setTitle("Confirm");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Are you sure?");
+
+                    Optional<ButtonType> result = alert.showAndWait();
+                    if (result.get() == ButtonType.OK) {
+                        gotoMain(APP_WIDTH, APP_HEIGHT);
+                        event.consume();
+                    }
+                }
+            }
+        });
 
         return root;
     }

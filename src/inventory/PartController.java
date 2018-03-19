@@ -7,7 +7,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
-
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -69,6 +68,7 @@ public class PartController implements Initializable, Utility {
 
     /**
      * Initialize form, restrict integer input only accept Integer using REGEX
+     *
      * @param url
      * @param rb
      */
@@ -82,9 +82,9 @@ public class PartController implements Initializable, Utility {
 
         // switch company name and machine id dependent radiogroup solution
         handleMachine();
-        restrictInput(txtPartMin,"[0-9]*");
-        restrictInput(txtPartMax,"[0-9]*");
-        restrictInput(txtPartInventory,"[0-9]*");
+        restrictInput(txtPartMin, "[0-9]*");
+        restrictInput(txtPartMax, "[0-9]*");
+        restrictInput(txtPartInventory, "[0-9]*");
         restrictInput(txtPartPrice, "[0-9\\.]*");
 
     }
@@ -180,7 +180,7 @@ public class PartController implements Initializable, Utility {
             thePart.setMin(toInteger(partMin));
             thePart.setMax(toInteger(partMax));
             thePart.setPrice(toDouble(partPrice));
-         }
+        }
 
         if (toggleGroupValue.contains("Outsourced") && !txtPartID.getText().isEmpty()) {
 
@@ -206,7 +206,7 @@ public class PartController implements Initializable, Utility {
         alert.setContentText("Are you sure?");
 
         Optional<ButtonType> result = alert.showAndWait();
-        if (result.get() == ButtonType.OK){
+        if (result.get() == ButtonType.OK) {
             Main.getInstance().gotoMain(Main.APP_WIDTH, Main.APP_HEIGHT);
         }
 
